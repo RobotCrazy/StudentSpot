@@ -5,6 +5,10 @@ html ,body{
 	padding:0px;
 	overflow-x: hidden;
 }
+* {
+	box-sizing: border-box;
+	font-family: Helvetica;
+  }
 table {
 	width:100vw;
 }
@@ -13,9 +17,8 @@ td {
 	width:50vw;
 }
 p {
-	font-family:"Lucida Sans Unicode", sans-serif;
-	font-size:14px;
-}
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
 div {
 	overflow:auto; 
 }
@@ -23,12 +26,36 @@ table {
 	overflow:auto;
 }
 h1, h2, h3, h4, h5, h6 {
+	font-family:Helvetica;
 	text-align:center;
+}
+form {
+	border: 3px solid #6606A5;
+	border-radius: 3px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	padding: 25px;
+}
+input[type=text] {
+	display: inline;
+	border: 2px solid grey;
+	border-radius:5px;
+	margin: 5px;
+	padding: 6px 10px;
+	transition: border-color .5s;d
+}
+input[type=text]:focus {
+	border-color: #6606A5;
+	transition: border-color .5s;
+}
+label {
+	font-weight: bold;
+	display:inline;
 }
 .courseButton {
       color: #222;
-      width: 94vw;
-	  max-height:50px;
+      width: 100%;
+	  max-height:75px;
       text-align: left;
       outline: none;
       font-size: 16px;
@@ -56,17 +83,18 @@ h1, h2, h3, h4, h5, h6 {
       padding: 0 18px;
       font-size: 14px;
       overflow: hidden;
-      transition: max-height 0.7s ease-in-out;
+      transition: max-height 0.7s ease-out;
       border-left: 2px solid #222;
-      border-right: 2px solid #222;
+	  border-right: 2px solid #222;
 	  font-family: "Helvetica";
 }
 
-.hidden2 {
+
+@keyframes courseOpen{
 	
 }
 .open {
-	transition: max-height 0.7s ease-out;
+	animation: max-height 0.7s ease-out;
 }
 .course_subject {
 	font-family:Helvetica;
@@ -84,10 +112,43 @@ h1, h2, h3, h4, h5, h6 {
 	padding-right: 3%;
 	float:right;
 }
-.header {
-	background-color:grey;
-	text-align:center;
-}
+header {
+	background-color: #cccccc;
+	padding: 30px;
+	text-align: center;
+	height: 185px;
+  }
+  .content {
+	padding: 5vw;
+  }
+  .pageTopContainer {
+	padding: 16px;
+	text-align: center;
+	margin-right: 5vw;
+	margin-left: 5vw;
+	border-left: 2px dashed #6606A5;
+	border-right: 2px dashed #6606A5;
+	border-bottom: 2px dashed #6606A5;
+  }
+  #courseSearch {
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 2px solid #ddd;
+	margin-bottom: 12px;
+	border-radius: 5px;
+	transition: width .7s ease-in-out, border-color .7s ease-in-out;
+	width: 20%;
+  }
+  #courseSearch:focus {
+	border-color: #6606A5;
+	width: 100%;
+  }
+  .table__header {
+	background-color: #6606A5;
+	color: white;
+  }
 
 /*Border Styles*/
 .borderLess {
@@ -173,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 	vertical-align:top;
 }
 .vCenter {
-	vertical-align:50%;
+	vertical-align:middle;
 }
 .vBottom {
 	vertical-align:bottom;
