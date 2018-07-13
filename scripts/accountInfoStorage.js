@@ -8,18 +8,17 @@ function encrypt(text, key) {
 }
 
 function decrypt(encrypted, key) {
-  var unhexSubtract = fromHex(parseInt(encrypted) - parseInt(toHex(key)));
-  var unswitch = switchex(unhexSubtract + "");
-  return fromHex(unswitch);
+  var unhex = fromHex(parseInt(encrypted));
+  var subtractKeyHex = parseInt(unhex) - parseInt(switchex(toHex(key)));
+  console.log("Text hex switchexed post-decryption: " + subtractKeyHex);
 }
 
 function switchex(text) {
     var switched = "";
-    var hex = "" + toHex(text);
-    var firstHalf = hex.substring(0, hex.length/2);
-    var secondHalf = hex.substring(hex.length/2);
+    var firstHalf = text.substring(0, text.length/2);
+    var secondHalf = text.substring(text.length/2);
     switched += secondHalf + firstHalf;
-    return switched;
+    return toHex(switched);
 }
 
 function fromHex(hex) {
