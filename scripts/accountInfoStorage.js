@@ -1,28 +1,47 @@
 function encrypt(text, key) {
-    var textHexSwitched = "";
-    var firstHalf = text.substring(0, text.length/2 + 1);
-    var secondHalf = text.substring(text.length/2 + 1);
-    textHexSwitched += secondHalf + firstHalf;
-    return textHexSwitched;
+  console.log("Text hex: " + toHex(text));
+  console.log("Key hex: " + toHex(key));
+  console.log("Text hex switched: " + switchAround(toHex(text) + ""));
+  console.log("Key hex switched: " + switchAround(toHex(key) + ""));
+  var combined = parseInt(switchAround(toHex(text))) + parseInt(switchAround(toHex(key)));
+  return toHex(combined + "");
 }
 
-function toHex(s) {
-    // utf8 to latin1
-    var s = unescape(encodeURIComponent(s))
-    var h = ''
-    for (var i = 0; i < s.length; i++) {
-        h += s.charCodeAt(i).toString(16)
+function decrypt(encrypted, key) {
+  var unhexSubtract = parseInt(fromHex(parseInt(encrypted))) - parseInt(toHex(key));
+  var unswitch = switchAround(unhexSubtract + "");
+  return fromHex(unswitch);
+}
+
+function switchAround(text) {
+    var switched = "";
+    var hex = "" + toHex(text);
+    var firstHalf = hex.substring(0, hex.length/2);
+    var secondHalf = hex.substring(hex.length/2);
+    switched += secondHalf + firstHalf;
+    return switched;
+}
+
+function fromHex(hex) {
+    var hex = hex.toString();//force conversion
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2)
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    return str;
+}
+
+function toHex(str) {
+    var hex = '';
+    for(var i=0;i<str.length;i++) {
+        hex += ''+str.charCodeAt(i).toString(16);
     }
-    return h
+    return hex;
 }
 
-function fromHex(h) {
-    var s = ''
-    for (var i = 0; i < h.length; i+=2) {
-        s += String.fromCharCode(parseInt(h.substr(i, 2), 16))
-    }
-    return decodeURIComponent(escape(s))
-}
-
-console.log("Normal Hex: " + toHex("test"));
-console.log("Switched: " + encrypt("test", "unique"));
+var plain = "test";
+var key = "unique";
+console.log("Plain text: " + plain);
+var encrypted = encrypt(plain, key);
+console.log("Encrypted text: " + encrypted);
+var decrypted = decrypt(encrypted, key);
+console.log("Decrypted text: " + decrypted);
