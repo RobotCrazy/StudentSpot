@@ -1,4 +1,4 @@
-var SimpleCrypto = require("simple-crypto-js").default;
+import SimpleCrypto from "simple-crypto-js";
 
 var key = "unique";
 var simpleCrypto = new SimpleCrypto(key);
