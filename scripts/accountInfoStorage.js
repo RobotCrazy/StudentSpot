@@ -1,10 +1,27 @@
-import SimpleCrypto from "simple-crypto-js";
+function encrypt(text, key) {
+    var textHexSwitched = "";
+    for(var i = toHex(text).length; i >= 0; i--) {
+      textHexSwitched += toHex(text).charAt(i);
+    }
+    return textHexSwitched;
+}
 
-var key = "unique"
-var s = new SimpleCrypto(key);
-var plain = "test";
-console.log("Plain text: " + plain);
-var encrypted = s.encrypt(plain);
-console.log("Encrypted text: " + encrypted);
-var decrypted = s.decrypt(encrypted);
-console.log("Decrypted text: + " + decrypted);
+function toHex(s) {
+    // utf8 to latin1
+    var s = unescape(encodeURIComponent(s))
+    var h = ''
+    for (var i = 0; i < s.length; i++) {
+        h += s.charCodeAt(i).toString(16)
+    }
+    return h
+}
+
+function fromHex(h) {
+    var s = ''
+    for (var i = 0; i < h.length; i+=2) {
+        s += String.fromCharCode(parseInt(h.substr(i, 2), 16))
+    }
+    return decodeURIComponent(escape(s))
+}
+
+console.log(encrypt("test", "unique"));
