@@ -1,4 +1,4 @@
-import SimpleCrypto from "simple-crypto-js";
+import SimpleCrypto from "node_modules/simple-crypto-js";
 
 var key = "unique";
 var simpleCrypto = new SimpleCrypto(key);
