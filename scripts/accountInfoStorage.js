@@ -1,6 +1,6 @@
-import sha256 from './node_modules/crypto-js/sha256';
-import hmacSHA512 from './node_modules/crypto-js/hmac-sha512';
-import Base64 from './node_modules/crypto-js/enc-base64';
+import sha256 from '../node_modules/crypto-js/sha256';
+import hmacSHA512 from '../node_modules/crypto-js/hmac-sha512';
+import Base64 from '../node_modules/crypto-js/enc-base64';
 
 // const message, nonce, path, privateKey; // ...
 // const hashDigest = sha256(nonce + message);
