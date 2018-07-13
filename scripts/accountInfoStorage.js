@@ -1,8 +1,8 @@
 function encrypt(text, key) {
     var textHexSwitched = "";
-    for(var i = toHex(text).length; i >= 0; i--) {
-      textHexSwitched += toHex(text).charAt(i);
-    }
+    var firstHalf = text.substring(0, text.length/2 + 1);
+    var secondHalf = text.substring(text.length/2 + 1);
+    textHexSwitched += secondHalf + firstHalf;
     return textHexSwitched;
 }
 
@@ -24,4 +24,5 @@ function fromHex(h) {
     return decodeURIComponent(escape(s))
 }
 
-console.log(encrypt("test", "unique"));
+console.log("Normal Hex: " + toHex("test"));
+console.log("Switched: " + encrypt("test", "unique"));
