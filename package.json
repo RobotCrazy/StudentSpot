@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "simple-crypto-js": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.41"
   }
 }
