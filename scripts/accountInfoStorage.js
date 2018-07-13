@@ -1,4 +1,4 @@
-import aes from "../node_modules/crypto-js/aes.js";
+import * as CryptoJS from 'crypto-js';
 
 // const message, nonce, path, privateKey; // ...
 // const hashDigest = sha256(nonce + message);
