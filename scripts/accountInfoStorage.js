@@ -1,19 +1,19 @@
 function encrypt(text, key) {
   console.log("Text hex: " + toHex(text));
   console.log("Key hex: " + toHex(key));
-  console.log("Text hex switched: " + switchAround(toHex(text) + ""));
-  console.log("Key hex switched: " + switchAround(toHex(key) + ""));
-  var combined = parseInt(switchAround(toHex(text))) + parseInt(switchAround(toHex(key)));
+  console.log("Text hex switchexed: " + switchex(toHex(text)));
+  console.log("Key hex switchexed: " + switchex(toHex(key)));
+  var combined = parseInt(switchex(toHex(text))) + parseInt(switchex(toHex(key)));
   return toHex(combined + "");
 }
 
 function decrypt(encrypted, key) {
-  var unhexSubtract = parseInt(fromHex(parseInt(encrypted))) - parseInt(toHex(key));
-  var unswitch = switchAround(unhexSubtract + "");
+  var unhexSubtract = fromHex(parseInt(encrypted) - parseInt(toHex(key)));
+  var unswitch = switchex(unhexSubtract + "");
   return fromHex(unswitch);
 }
 
-function switchAround(text) {
+function switchex(text) {
     var switched = "";
     var hex = "" + toHex(text);
     var firstHalf = hex.substring(0, hex.length/2);
