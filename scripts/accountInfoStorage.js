@@ -1,17 +1,10 @@
-import * as CryptoJS from '../node_modules/crypto-js/crypto-js.js';
+import SimpleCrypto from "../node_modules/simple-crypto-js";
 
-// const message, nonce, path, privateKey; // ...
-// const hashDigest = sha256(nonce + message);
-// const hmacDigest = Base64.stringify(hmacSHA512(path + hashDigest, privateKey));
-
-// var AES = require("crypto-js/aes");
-// var SHA256 = require("crypto-js/sha256");
-
+var key = "unique"
+var s = new SimpleCrypto(key);
 var plain = "test";
-var key = "unique";
-var encrypted = CryptoJS.AES.encrypt(plain, key);
-var decrypted = CryptoJS.AES.decrypt(encrypted, key);
-
 console.log("Plain text: " + plain);
-console.log("Encrypted: " + encrypted);
-console.log("Decrypted: " + decrypted);
+var encrypted = s.encrypt(plain);
+console.log("Encrypted text: " + encrypted);
+var decrypted = s.decrypt(encrypted);
+console.log("Decrypted text: + " + decrypted);
