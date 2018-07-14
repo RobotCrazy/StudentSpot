@@ -1,16 +1,16 @@
 function encrypt(text, key) {
-  console.log("Text hex: " + toHex(text));
-  console.log("Key hex: " + toHex(key));
-  console.log("Text hex switchexed: " + switchex(toHex(text)));
-  console.log("Key hex switchexed: " + switchex(toHex(key)));
-  var combined = parseInt(switchex(toHex(text))) + parseInt(switchex(toHex(key)));
+  var combined = switchex(toHex(text)) + switchex(toHex(key));
   return toHex(combined + "");
 }
 
 function decrypt(encrypted, key) {
-  var unhex = fromHex(parseInt(encrypted));
-  var subtractKeyHex = parseInt(unhex) - parseInt(switchex(toHex(key)));
-  console.log("Text hex switchexed post-decryption: " + subtractKeyHex);
+  var unhex = fromHex(encrypted);
+  var subtractKeyHex = unhex.substring(0, unhex.length - switchex(toHex(key)).length);
+  var unhexedKeyHex = fromHex(subtractKeyHex);
+  var firstHalf_keyHex = unhexedKeyHex.substring(0, unhexedKeyHex.length/2);
+  var secondHalf_keyHex = unhexedKeyHex.substring(unhexedKeyHex.length/2);
+  var unswitchexedKeyHex = secondHalf_keyHex + firstHalf_keyHex;
+  return fromHex(unswitchexedKeyHex);
 }
 
 function switchex(text) {
@@ -37,8 +37,8 @@ function toHex(str) {
     return hex;
 }
 
-var plain = "test";
-var key = "unique";
+var plain = "Antonio123";
+var key = "jjohnanselmo@gmail.com";
 console.log("Plain text: " + plain);
 var encrypted = encrypt(plain, key);
 console.log("Encrypted text: " + encrypted);
