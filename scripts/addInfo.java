@@ -1,36 +1,68 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.io.*;
+import javax.script.ScriptException;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Iterator;
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+
+
 public class addInfo {
 
-  public static void main(String[] args) {
-    ScriptEngineManager manager = new ScriptEngineManager();
-    ScriptEngine engine = manager.getEngineByName("JavaScript");
-    // read script file
-    engine.eval(Files.newBufferedReader(Paths.get("C:/Scripts/Jsfunctions.js"), StandardCharsets.UTF_8));
+  public static void main(String [] args) {
+    add("testEm", "testPa", "reg");
+  }
 
-    Invocable inv = (Invocable) engine;
-    // call function from script file
-    inv.invokeFunction("yourFunction", "param");
-    JSONObject obj = new JSONObject();
-    obj.put("email", inv.invokeFunction("encrypt", "testing"));
-    obj.put("password", inv.invokeFunction("encrypt", "test"));
-
-    try (FileWriter file = new FileWriter("../accounts/regularLogins.json")) {
-
-        file.write(obj.toJSONString());
-        file.flush();
-
-    } catch (IOException e) {
-        e.printStackTrace();
+  public static void add(String em, String pa, String accType) {
+    String regulars = "../accounts/regularLogins.txt";
+    String admins = "../accounts/adminLogins.txt";
+    try {
+      ScriptEngineManager manager = new ScriptEngineManager();
+      ScriptEngine javascriptEngine = manager.getEngineByExtension("js");
+      FileInputStream fileInputStream = new FileInputStream("./accountInfoStorage.js");
+      BufferedReader reader = new BufferedReader(new InputStreamReader(fileInputStream));
+      javascriptEngine.eval(reader);
+      Invocable invocableEngine = (Invocable)javascriptEngine;
+      if(accType.equals("reg")) {
+        try {
+          FileWriter fw = new FileWriter(regulars);
+          BufferedWriter bw = new BufferedWriter(fw);
+          bw.write("{");
+          bw.newLine();
+          bw.write("\temail : " + invocableEngine.invokeFunction("encrypt", em));
+          bw.newLine();
+          bw.write("\tpass : " + invocableEngine.invokeFunction("encrypt", pa));
+          bw.newLine();
+          bw.write("}");
+          bw.close();
+        } catch(IOException ex) {
+          System.out.println("Error writing to file \'"  + regulars + "\'");
+        } catch(Exception e) {
+          System.err.println(e);
+        }
+      }
+    } catch(Exception e) {
+      System.err.println(e);
     }
 
-    System.out.print(obj);
+
+
+    // else if(accType.equals("adm")) {
+    //   try {
+    //     FileWriter fileWriter = new FileWriter(admins);
+    //     BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+    //     bufferedWriter.write("Hello there,");
+    //     bufferedWriter.write(" here is some text.");
+    //     bufferedWriter.newLine();
+    //     bufferedWriter.write("We are writing");
+    //     bufferedWriter.write(" the text to the file.");
+    //     bufferedWriter.close();
+    //   }
+    //   catch(IOException ex) {
+    //     System.out.println("Error writing to file \'"  + fileName + "\'");
+    //   }
+    // }
   }
 }
