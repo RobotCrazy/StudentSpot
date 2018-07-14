@@ -37,8 +37,8 @@ function toHex(str) {
     return hex;
 }
 
-var plain = "Antonio123";
-var key = "jjohnanselmo@gmail.com";
+var plain = "password";
+var key = "uniqueKey";
 console.log("Plain text: " + plain);
 var encrypted = encrypt(plain, key);
 console.log("Encrypted text: " + encrypted);
