@@ -36,11 +36,3 @@ function toHex(str) {
     }
     return hex;
 }
-
-var plain = "password";
-var key = "uniqueKey";
-console.log("Plain text: " + plain);
-var encrypted = encrypt(plain, key);
-console.log("Encrypted text: " + encrypted);
-var decrypted = decrypt(encrypted, key);
-console.log("Decrypted text: " + decrypted);
