@@ -22,7 +22,7 @@ public class addInfo {
 
   public static void addEmAll() {
       String[][] accounts = {
-          {"em1", "pa1", "reg"}//,
+          // {"em1", "pa1", "reg"},
           // {"em2", "pa2", "reg"},
           // {"em3", "pa3", "reg"},
           // {"em4", "pa4", "reg"}
