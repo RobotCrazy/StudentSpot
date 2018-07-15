@@ -10,9 +10,29 @@ import javax.script.ScriptEngineManager;
 
 
 public class addInfo {
+    private static boolean hasAdded = false;
 
   public static void main(String [] args) {
-    add("testEm", "testPa", "reg");
+      System.out.println("Adding accountss...");
+      addEmAll();
+      while(!hasAdded) {
+          System.out.println(".");
+      }
+  }
+
+  public static void addEmAll() {
+      String[][] accounts = {
+          {"em1", "pa1", "reg"}//,
+          // {"em2", "pa2", "reg"},
+          // {"em3", "pa3", "reg"},
+          // {"em4", "pa4", "reg"}
+      };
+
+      for(int i = 0; i < accounts.length; i++) {
+          add(accounts[i][0], accounts[i][1], accounts[i][2]);
+          System.out.println(accounts[i][0] + ", " + accounts[i][1] + ", " + accounts[i][2]);
+      }
+      hasAdded = true;
   }
 
   public static void add(String em, String pa, String accType) {
@@ -27,16 +47,15 @@ public class addInfo {
       Invocable invocableEngine = (Invocable)javascriptEngine;
       if(accType.equals("reg")) {
         try {
-          FileWriter fw = new FileWriter(regulars);
+          FileWriter fw = new FileWriter(regulars, true);
           BufferedWriter bw = new BufferedWriter(fw);
-          bw.write("{");
-          bw.newLine();
-          bw.write("\temail : " + invocableEngine.invokeFunction("encrypt", "testEm", "unique"));
-          bw.newLine();
-          bw.write("\tpass : " + invocableEngine.invokeFunction("encrypt", "testPa", "unique"));
-          bw.newLine();
-          bw.write("}");
-          bw.close();
+          PrintWriter out = new PrintWriter(bw);
+          out.println("{");
+          out.println("\t\'email\' : \'" + invocableEngine.invokeFunction("encrypt", em, pa ) + "\'");
+          out.println("");
+          out.println("\t\'pass\' : \'" + invocableEngine.invokeFunction("encrypt", pa, em) + "\'");
+          out.println("}\n");
+          out.close();
         } catch(IOException ex) {
           System.out.println("Error writing to file \'"  + regulars + "\'");
         } catch(Exception e) {
