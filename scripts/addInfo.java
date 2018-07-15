@@ -31,9 +31,9 @@ public class addInfo {
           BufferedWriter bw = new BufferedWriter(fw);
           bw.write("{");
           bw.newLine();
-          bw.write("\temail : " + invocableEngine.invokeFunction("encrypt", em));
+          bw.write("\temail : " + invocableEngine.invokeFunction("encrypt", "testEm", "unique"));
           bw.newLine();
-          bw.write("\tpass : " + invocableEngine.invokeFunction("encrypt", pa));
+          bw.write("\tpass : " + invocableEngine.invokeFunction("encrypt", "testPa", "unique"));
           bw.newLine();
           bw.write("}");
           bw.close();
