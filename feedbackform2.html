@@ -1,0 +1,316 @@
+<!DOCTYPE html><html>
+<head>
+
+<title>Student Feedback Form</title>
+
+<style>
+
+body {
+margin: 0px;
+padding: 0px;
+font: 1.5vh Helvetica;
+color: black;
+}
+
+div.headbar {
+width: 98vw;
+background-color: #6606A5;
+border: 1vw solid #6606A5;
+font-size: 3vh;
+padding-top: 1.5vh;
+padding-bottom: 1.5vh;
+text-align: center;
+color: #F2F2F2;
+top: 0px;
+box-shadow: 0px .8vh 6.0vh 5px #888888;
+position: fixed;
+z-index: 998;
+}
+
+div.questions {
+padding-left: 2.5vw;
+padding-right: 2.5vw;
+width: 95vw;
+height: 100vh;
+overflow-x: hidden;
+overflow-y: hidden;
+}
+
+div.formq {
+font: 1.25vh Helvetica;
+background-color: #FFFFFF;
+padding-top: 20vh;
+height: 80vh;
+}
+
+textarea {
+width: 93vw;
+margin: 0px;
+margin-top: 5vh;
+padding-left: 1vw;
+padding-right: 1vw;
+padding-top: 1vh;
+height: 25vh;
+display: block;
+font-size: 2vh;
+border-radius: .5vw;
+}
+
+div.navbar {
+width: 100vw;
+z-index: 997;
+position: fixed;
+bottom: 0px;
+}
+
+table {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #111111;
+width: 100vw;
+height: 6.5vh;
+}
+
+td {
+color: #FFFFFF;
+text-align: center;
+text-decoration: none;
+font: 2vh Helvetica;
+border-radius: 10%;
+}
+
+a {
+color: #FFFFFF;
+text-align: center;
+text-decoration: none;
+font: 2vh Helvetica;
+width: 100%;
+}
+
+td:hover:not(.active) {
+background-color: #FFFFFF;
+color: #FFFFFF;
+
+}
+
+.active {
+background-color: #6606A0;
+}
+
+#nav {
+padding-top: 2.25vh;
+padding-bottom: 2.25vh;
+}
+
+aside {
+width: auto;
+padding: 2vw;
+height: auto;
+right: 4px;
+bottom: -15vh;
+position: fixed;
+background-color: #FFFFFF;
+text-align: center;
+opacity: 0;
+box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.3), 0 4px 10px 0 rgba(0, 0, 0, 0.3);
+-webkit-animation-name: aside; /* Safari 4.0 - 8.0 */
+-webkit-animation-duration: 20s; /* Safari 4.0 - 8.0 */
+-webkit-animation-delay: 4s; /* Safari 4.0 - 8.0 */
+animation-name: aside;
+animation-duration: 20s;
+animation-delay: 3s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes aside {
+0%   {bottom:-15vh;opacity:0;}
+5%   {bottom:7vh;opacity:1;}
+6%   {bottom:6.5vh;opacity:1;}
+94%   {bottom:6.5vh;opacity:1;}
+95%   {bottom:7vh;opacity:1;}
+100% {bottom:-15vh;opacity:0;}
+}
+
+/* Standard syntax */
+@keyframes aside {
+0%   {bottom:-15vh;opacity:0;}
+5%   {bottom:7vh;opacity:1;}
+6%   {bottom:6.5vh;opacity:1;}
+94%   {bottom:6.5vh;opacity:1;}
+95%   {bottom:7vh;opacity:1;}
+100% {bottom:-15vh;opacity:0;}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="headbar">
+<h2>Student Response Form</h2>
+</div>
+
+<div class="questions">
+
+
+<div class="formq" id="1">
+
+<h3>Question 1</h3>
+<h1> What is the name of the course you will be providing information for? Please note each class needs its own form. ie: do not put Adv Spanish 2 and Regular Spanish 2 on the same form. </h1>
+
+<textarea>Advanced Math, Theater 2, etc.</textarea>
+
+</div>
+
+<div class="formq" id="2">
+
+<h3>Question 2</h3>
+<h1> Please describe the amount of time and work outside of class that students should expect to put in for this course per week. </h1>
+
+<font size="2.0vh">
+
+<input id="radio" type="radio" name="outside-time" value="Less than 1 hour">Less than 1 hour<br />
+<input type="radio" name="outside-time" value="1 to 2 hours">1 to 2 hours<br />
+<input type="radio" name="outside-time" value="2 to 3 hours">2 to 3 hours<br />
+<input type="radio" name="outside-time" value="3 to 4 hours">3 to 4 hours<br />
+<input type="radio" name="outside-time" value="More than 4 hours">More than 4 hours<br />
+
+</font>
+
+</div>
+
+<div class="formq" id="3">
+
+<h3>Question 3</h3>
+<h1> If this class is an advanced class, please note what its normal version is if present in Battlefield High School. </h1>
+
+<textarea>Spanish 2, Biology, etc.</textarea>
+
+</div>
+
+<div class="formq" id="4">
+
+<h3>Question 4</h3>
+<h1> If the class is an advanced class, please describe the difference between this class and its regular counterpart. (Work load, needed skills, terms of retakes/late turn in, etc.) </h1>
+
+<textarea>This class has a much higher workload than regular chemistry, and does not accept late work.</textarea>
+
+</div>
+
+<div class="formq" id="5">
+
+<h3>Question 5</h3>
+<h1> Please list any mandatory prerequisites required to take this class. </h1>
+
+<textarea>Biology must be taken prior to Chemistry</textarea>
+
+</div>
+
+<div class="formq" id="6">
+
+<h3>Question 6</h3>
+<h1> Please list any recommended prerequisites students should take prior to taking this class. </h1>
+
+<textarea>Algebra 2/Trigonometry is recommended prior to Chemistry</textarea>
+
+</div>
+
+<div class="formq" id="7">
+
+<h3>Question 7</h3>
+<h1> Please provide your advice or tips for succeeding in this class specifically. </h1>
+
+<textarea>Take notes, study every night, etc.</textarea>
+
+</div>
+
+<div class="formq" id="8">
+
+<h3>Question 8</h3>
+<h1> Please describe, in more detail, the content taught in this course. You may also email us a syllabus instead. </h1>
+
+<textarea>Chemistry teaches about elements and compounds interacting on a molecular level.</textarea>
+
+</div>
+
+<div class="formq" id="9">
+
+<h3>Question 9</h3>
+<h1> Please describe the benefits that students will receive by taking this class. Also include future career possibilities that may open for students by taking this class. </h1>
+
+<textarea>Journalism provides a better understanding of published news, and can provide experience in the news field.</textarea>
+
+</div>
+
+<div class="formq" id="10">
+
+<h3>Question 10</h3>
+<h1> Please describe the skills this class provides students that may be beneficial to them in the future. </h1>
+
+<textarea>Journalism helps to teach students the importance of time management and deadlines.</textarea>
+
+</div>
+
+<div class="formq" id="11">
+
+<h3>Question 11</h3>
+<h1> Please list and describe any skills that may be helpful for students to have (prior to taking the class) in order to succeed. </h1>
+
+<textarea>For Functions Analytic Geometry, time management and being able to use a calculator efficiently are very important.</textarea>
+
+</div>
+
+<div class="formq" id="12">
+
+<h3>Question 12</h3>
+<h1> Please describe what daily classroom activity is like. </h1>
+
+<textarea>Functions Analytic Geometry usually is note-taking, followed by assisted examples, and then individual work.</textarea>
+
+</div>
+
+<div class="formq" id="13">
+
+<h3>Question 13</h3>
+<h1>Please fill out your name and email. (Just making sure you attend Battlefield)</h1>
+
+<textarea>John H. Doe</textarea>
+
+<textarea>DoeJH21@pwcs-edu.org</textarea>
+
+</div>
+
+</div>
+
+<div class="navbar">
+
+<table>
+<td><a href="#1">1</a></td>
+<td><a href="#2"><div id="nav">2</div></a></td>
+<td><a href="#3"><div id="nav">3 </div></a></td>
+<td><a href="#4"><div id="nav">4 </div></a></td>
+<td><a href="#5"><div id="nav">5 </div></a></td>
+<td><a href="#6"><div id="nav">6 </div></a></td>
+<td><a href="#7"><div id="nav">7 </div></a></td>
+<td><a href="#8"><div id="nav">8 </div></a></td>
+<td><a href="#9"><div id="nav">9 </div></a></td>
+<td><a href="#10"><div id="nav">10</div></a></td>
+<td><a href="#11"><div id="nav">11</div></a></td>
+<td><a href="#12"><div id="nav">12</div></a></td>
+<td><a href="#13"><div id="nav">13</div></a></td>
+</table>
+
+</div>
+
+<aside>
+
+<h2>For navigation:</h2>
+
+<p>Click the numbers below to go to the corresponding questions!</p>
+
+</aside>
+
+</body>
