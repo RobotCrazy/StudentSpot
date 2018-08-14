@@ -38,7 +38,7 @@
 <body>
     <form name="form1" id="form1" method="post" target="no-target">
         <input id="firstName" placeholder="Enter your first name" name="firstName" />
-        <button type="button" name="Send" id="submitButton" onClick="writeToSheet(this.value)">Send</button>
+        <button type="button" name="Send" id="submitButton" onClick="writeToSheet(document.getElementById('firstName').value)"></button>>Send</button>
         <input type="text" id="stuff" name="stuff" />
         <button type="button" id="stuff2" name="stuff2">Do Something</button>
     </form>
