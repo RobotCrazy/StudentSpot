@@ -139,7 +139,7 @@ header {
 	border-radius: 5px;
 	transition: width .7s ease-in-out, border-color .7s ease-in-out;
 	width: 20%;
-	  min-width: 500px;
+	  min-width: 250px;
   }
   #courseSearch:focus {
 	border-color: #6606A5;
