@@ -38,7 +38,7 @@ form {
 }
 input[type=text] {
 	display: inline;
-	border: 2px solid grey;
+	border: 2px solid #cccccc;
 	border-radius:5px;
 	margin: 5px;
 	padding: 6px 10px;
@@ -55,7 +55,7 @@ label {
 .courseButton {
       color: #222;
       width: 100%;
-	  max-height:75px;
+	max-height:75px;
       text-align: left;
       outline: none;
       font-size: 16px;
@@ -104,12 +104,12 @@ label {
 }
 .teacherDesc {
 	width:45%;
-	padding-left: 3%;
+	padding-left: 2.5%;
 	float:left;
 }
 .studentDesc {
 	width:45%;
-	padding-right: 3%;
+	padding-right: 2.5%;
 	float:right;
 }
 header {
@@ -139,6 +139,7 @@ header {
 	border-radius: 5px;
 	transition: width .7s ease-in-out, border-color .7s ease-in-out;
 	width: 20%;
+	  min-width: auto;
   }
   #courseSearch:focus {
 	border-color: #6606A5;
