@@ -127,6 +127,7 @@ header {
 	margin-right: 5vw;
 	margin-left: 5vw;
 	border: none;
+	height: auto;
   }
   #courseSearch {
 	background-position: 10px 10px;
