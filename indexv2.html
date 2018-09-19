@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>StudentSpot | Home | Battlefield High School</title>
+    <title>Course Information Hub | Home | Battlefield High School</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' />
     <link href="css/mainstyle.css" rel="stylesheet" />
-    <script src="scripts/StudentFeedback - class.js"></script>
-    <script src="scripts/TeacherFeedback-class.js"></script>
-    <script src="scripts/Course-class.js"></script>
-    <script src="scripts/coursesListScript.js"></script>
-    <script src="scripts/googleDataPull.js"></script>
-    <script src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="scripts/studentfeedback - class.js"></script>
+    <script src="scripts/teacherfeedback-class.js"></script>
+    <script src="scripts/course-class.js"></script>
+    <script src="scripts/courseslistscript.js"></script>
+    <script src="scripts/hashconversion.js"></script>
+    <script src="scripts/googledatahandling.js"></script>
+    <script src="scripts/googledatapull.js"></script>
     <script src="scripts/search.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
     <!--<script src="courseList.json"></script>-->
     <!--<script src="loadingScript.js"></script>-->
 </head>
@@ -22,11 +25,14 @@
 <body>
     <header>
         <h2>StudentSpot</h2>
-        <a href="login.html"<button id="login" type="button">Login</button></a>
+        <a href="login.html"> <button id="login" type="button">Login</button></a>
         <p>Thinking about classes? Need help with planning? Welcome to StudentSpot.</p>
     </header>
 
     <div class="pageTopContainer">
+        <div class="submitStudentResponseDiv">
+            <a href="studentResponseEditing.html" class="submitStudentResponseAnchor">Submit a student response.</a>
+        </div>
         <p>StudentSpot was created to give students help with planning, scheduling, etc. Only other students can really tell you what different classes are like.</p>
         <p>After realizing this, we recruited a team of students to create a place that student could learn from their peers about classes. After conducting surveys of multiple students and teachers, StudentSpot was released to the school.
         </p>
@@ -39,8 +45,18 @@
             <div class="table__header">
                 <h3>Courses</h3>
             </div>
+            <p id="replaceText">
+                Courses are loading. If nothing appears here within 5 seconds, try refreshing the page.
+            </p>
         </div>
     </div>
+    <form name="form1" id="form1" method="post" target="no-target">
+        <input id="firstName" placeholder="Enter your first name" name="firstName" />
+        <button type="button" name="Send" id="submitButton" onClick="writeToDocument(this.value)">Send</button>
+        <input type="text" id="stuff" name="stuff" />
+        <button type="button" id="stuff2" name="stuff2">Do Something</button>
+    </form>
+    <button onclick="formJWT();">Request Access</button>
 </body>
 
 </html>

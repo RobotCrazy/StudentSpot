@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <script src="scripts/courseslistscript.js"></script>
+    <script src="scripts/googleDataPull.js"></script>
+    <script src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
+    <script>
+        function writeToSheet(write) {
+            var params = {
+                // The ID of the spreadsheet to update.
+                spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+
+                // The A1 notation of the values to update.
+                range: "Sheet1'!A1", // TODO: Update placeholder value.
+
+                // How the input data should be interpreted.
+                valueInputOption: 'RAW', // TODO: Update placeholder value.
+            };
+
+            var valueRangeBody = {
+                // TODO: Add desired properties to the request body. All existing properties
+                // will be replaced.
+                "values": write
+            };
+
+            var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+            request.then(function(response) {
+                // TODO: Change code below to process the `response` object:
+                console.log(response.result);
+            }, function(reason) {
+                console.error('error: ' + reason.result.error.message);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <form name="form1" id="form1" method="post" target="no-target">
+        <input id="firstName" placeholder="Enter your first name" name="firstName" />
+        <button type="button" name="Send" id="submitButton" onClick="writeToSheet(document.getElementById('firstName').value)"></button>>Send</button>
+        <input type="text" id="stuff" name="stuff" />
+        <button type="button" id="stuff2" name="stuff2">Do Something</button>
+    </form>
+
+</body>
+
+</html>

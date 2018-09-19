@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="googleDataHandling.js">
+    </script>
+    <!--<script src="jquery.js"></script>
+    <script>
+        var OAUTHURL = 'https://accounts.google.com/o/oauth2/auth?';
+        var VALIDURL = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=';
+        var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+        var CLIENTID = '919400316199-68vns4ia05nloajcjtcl0qqqq54qbul2.apps.googleusercontent.com';
+        var REDIRECT = 'http://studentspot.bitballoon.com'
+        var LOGOUT = 'http://accounts.google.com/Logout';
+        var TYPE = 'token';
+        var _url = OAUTHURL + 'scope=' + SCOPE + '&client_id=' + CLIENTID + '&redirect_uri=' + REDIRECT + '&response_type=' + TYPE;
+        var acToken;
+        var tokenType;
+        var expiresIn;
+        var user;
+        var loggedIn = false;
+
+        function login() {
+            var win = window.open(_url, "windowname1", 'width=800, height=600');
+
+            var pollTimer = window.setInterval(function() {
+                try {
+                    console.log("inside login function");
+                    console.log(win.document.URL);
+                    if (win.document.URL.indexOf(REDIRECT) != -1) {
+                        window.clearInterval(pollTimer);
+                        var url = win.document.URL;
+                        acToken = gup(url, 'access_token');
+                        tokenType = gup(url, 'token_type');
+                        expiresIn = gup(url, 'expires_in');
+                        win.close();
+
+                        validateToken(acToken);
+                    }
+                } catch (e) {}
+            }, 500);
+        }
+
+        function validateToken(token) {
+            console.log("inside validateToken function");
+            $.ajax({
+                url: VALIDURL + token,
+                data: null,
+                success: function(responseText) {
+                    writeToSheet("Hello");
+                    loggedIn = true;
+                    $('#loginText').hide();
+                    $('#logoutText').show();
+                },
+                dataType: "jsonp"
+            });
+        }
+
+        function writeToSheet(write) {
+            var params = {
+                // The ID of the spreadsheet to update.
+                spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+
+                // The A1 notation of the values to update.
+                range: "'Sheet1'!A1", // TODO: Update placeholder value.
+
+                // How the input data should be interpreted.
+                valueInputOption: 'RAW', // TODO: Update placeholder value.
+            };
+
+            var valueRangeBody = {
+                // TODO: Add desired properties to the request body. All existing properties
+                // will be replaced.
+                "values": write
+            };
+
+            var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+            request.then(function(response) {
+                // TODO: Change code below to process the `response` object:
+                console.log(response.result);
+            }, function(reason) {
+                console.error('error: ' + reason.result.error.message);
+            });
+
+
+
+            //reading code:
+            /*var params = {
+                // The ID of the spreadsheet to retrieve data from.
+                spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+
+                // The A1 notation of the values to retrieve.
+                range: 'Sheet1', // TODO: Update placeholder value.
+
+                // How values should be represented in the output.
+                // The default render option is ValueRenderOption.FORMATTED_VALUE.
+                //valueRenderOption: '',  // TODO: Update placeholder value.
+
+                // How dates, times, and durations should be represented in the output.
+                // This is ignored if value_render_option is
+                // FORMATTED_VALUE.
+                // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+                // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+            };
+
+            //Teacher request:
+            var request = gapi.client.sheets.spreadsheets.values.get(params);
+            request.then(function(response) {
+                // TODO: Change code below to process the `response` object:
+                for (var r = 0; r < response.result.values.length; r++) {
+                    for (var c = 0; c < response.result.values[r].length; c++) {
+                        document.body.innerHTML += response.result.values[r][c];
+                    }
+                }
+
+            }, function(reason) {
+                console.error('error: ' + reason.result.error.message);
+            });*/
+        }
+
+        //credits: http://www.netlobo.com/url_query_string_javascript.html
+        function gup(url, name) {
+            name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+            var regexS = "[\\#&]" + name + "=([^&#]*)";
+            var regex = new RegExp(regexS);
+            var results = regex.exec(url);
+            if (results == null)
+                return "";
+            else
+                return results[1];
+        }
+
+        function startLogoutPolling() {
+            $('#loginText').show();
+            $('#logoutText').hide();
+            loggedIn = false;
+            $('#uName').text('Welcome ');
+            $('#imgHolder').attr('src', 'none.jpg');
+        } 
+    </script> -->
+</head>
+
+<body>
+
+    <!-- <a href='#' onClick='login();' id="loginText"> Click here to login </a>
+    <a href="#" style="display:none" id="logoutText" target='myIFrame ' onclick="myIFrame.location='https://www.google.com/accounts/Logout '; startLogoutPolling();return false;"> Click here to logout </a>
+    <iframe name='myIFrame ' id="myIFrame" style='display:none '></iframe>
+    <div id='uName '></div>
+    <img src=' ' id='imgHolder ' /> -->
+</body>
+
+</html>

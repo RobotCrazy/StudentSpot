@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Course Information Hub | Student Response Editor
+    </title>
+    <script>
+        function setUpPage() {
+            document.body.insertBefore(buildHeader(), document.body.childNodes[0]);
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet' />
+    <link href="css/mainstyle.css" rel="stylesheet" />
+    <link href="css/studentresponseediting.css" rel="stylesheet" />
+    <script src="scripts/pagesetup.js"></script>
+    <script src="scripts/studentresponseeditor.js"></script>
+    <script src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+
+</head>
+
+<body onLoad="setUpPage();">
+    <div>
+        <h3>Edit the following data for grammatical and spelling mistakes.</h3>
+        <form name="studentResponseEditor" id="studentResponseEditor">
+            <p id="replaceText">
+                Editor is loading.... Please wait. If nothing appears in five seconds, please refresh the page and try again.
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
