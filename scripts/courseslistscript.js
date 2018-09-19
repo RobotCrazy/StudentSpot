@@ -141,10 +141,11 @@ function buildStudentDesc(student) {
 }
 
 function displayCourses(courses) {
-    console.log("displayCourses() has been called");
+    //console.log("displayCourses() has been called");
     /**
      * Determine which subject the data is for
      */
+
     for (var i = 0; i < courses.length; i++) {
         var subjectPar = document.createElement("p");
         var subjectB = document.createElement("strong");
@@ -169,15 +170,19 @@ function displayCourses(courses) {
         coursePanel.className = "course_panel state-hidden";
         var courseButton = buildCourseButton(courses[i].name, courses[i].subject);
         var teacherDesc = buildTeacherDesc(courses[i].teacherFeedback);
-        var studentDesc;
+        var studentDesc = new Array(0);
         /* console.log("This is inside the function " + courses[i].name);
          console.log(courses[i].studentFeedback);*/
-        if (courses[i].studentFeedback != undefined) {
-            studentDesc = buildStudentDesc(courses[i].studentFeedback);
+        if (courses[i].studentFeedback.length > 0) {
+            console.log("studentFeedback length: " + courses[i].studentFeedback.length);
+            for (let x = 0; x < courses[i].studentFeedback.length; x++) {
+                studentDesc.push(buildStudentDesc(courses[i].studentFeedback[x]));
+                console.log("adding to studentDesc");
+            }
         } else {
-            studentDesc = document.createElement("div");
-            studentDesc.className = "studentDesc";
-            addElement(studentDesc, "h4", "No student feedback available yet.")
+            studentDesc.push(document.createElement("div"));
+            studentDesc[0].className = "studentDesc";
+            addElement(studentDesc[0], "h4", "No student feedback available yet.")
         }
 
         course.appendChild(courseButton);
@@ -185,16 +190,19 @@ function displayCourses(courses) {
         coursePanel.appendChild(countyDescPar);
         coursePanel.appendChild(hr1);
         coursePanel.appendChild(teacherDesc);
-        if (studentDesc) {
-            coursePanel.appendChild(studentDesc);
+        if (studentDesc.length > 0) {
+            console.log("studentDesc length: " + studentDesc.length);
+            for (let i = 0; i < studentDesc.length; i++) {
+                coursePanel.appendChild(studentDesc[i]);
+            }
         }
         coursePanel.style.maxHeight = "0px";
         course.appendChild(coursePanel);
         course.className += "course";
         document.getElementById("courses").appendChild(course);
-        console.log("displayCourses() is happening");
+        //console.log("displayCourses() is happening");
     }
-    console.log("displayCourses() is done");
+    //console.log("displayCourses() is done");
 }
 
 function toggleCourseDisplay() {

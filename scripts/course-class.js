@@ -1,6 +1,6 @@
 class Course {
-    constructor (name, subject, credits, countyDesc, regularCounterPart, advancedCounterPart, advRegDiff, 
-    teacherFeedback) {
+    constructor(name, subject, credits, countyDesc, regularCounterPart, advancedCounterPart, advRegDiff,
+        teacherFeedback) {
         this.name = name;
         this.subject = subject;
         this.credits = credits;
@@ -9,8 +9,9 @@ class Course {
         this.advancedCounterPart = advancedCounterPart;
         this.advRegDiff = advRegDiff;
         this.teacherFeedback = teacherFeedback;
+        this.studentFeedback = new Array(0);
     }
     addStudentFeedback(studentFeedback) {
-        this.studentFeedback = studentFeedback;
+        this.studentFeedback.push(studentFeedback);
     }
 }

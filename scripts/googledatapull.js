@@ -1,7 +1,7 @@
 var requestTeacher;
-var teacherResult;
 var requestStudent;
 var courses = new Array(0);
+var pullCounter = 0; //used to track how many api requests have been made so far
 
 /** The chain of API calls and processing starts here.   */
 function makeApiCall(subject) {
@@ -30,6 +30,11 @@ function makeApiCall(subject) {
         // TODO: Change code below to process the `response` object:
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
+        pullCounter++;
+        if (pullCounter == 5) {
+            studentFeedbackApiCall();
+        }
+        console.log(pullCounter);
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
     });
@@ -74,19 +79,20 @@ function studentFeedbackApiCall() {
             var courseName = courses[i].name;
             for (var x = 0; x < response.result.values.length; x++) {
                 if (courseName == response.result.values[x][1]) {
-                    /*console.log("Course name: " + courseName + "; " + response.result.values[x][1]);
-                    console.log("success");*/
+                    //console.log("Course name: " + courseName + "; " + response.result.values[x][1]);
                     var newStudentFeedback = buildStudentFeedback(response.result.values[x]);
                     courses[i].addStudentFeedback(newStudentFeedback);
                     //console.log("student is happening");
-                    /*console.log(courses[i].studentFeedback);*/
+                    //console.log(courses[i].studentFeedback);
                 }
             }
 
         }
+        console.log("pullCounter: " + pullCounter);
+        document.getElementById("replaceText").parentNode.removeChild(document.getElementById("replaceText"));
+        displayCourses(courses);
         /*console.log("studentAPICall is being set to true");
         studentFeedbackApiCallComplete = true;*/
-        displayCourses(courses);
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
     });
@@ -99,9 +105,10 @@ function studentFeedbackApiCall() {
 }
 
 function initClient() {
-    var API_KEY = 'AIzaSyDk4a4sXUHRt4HzCUiR3pAqV0er_PR6bgc'; // TODO: Update placeholder with desired API key.
+    console.log("initClient happened");
+    var API_KEY = 'AIzaSyAkmxR79hMxP2FWNe5e3oMHBYI8Jk8gbWE'; // TODO: Update placeholder with desired API key.
 
-    var CLIENT_ID = '969721645018-jp86ek5ps09fn4hdl01b1pccr94to0bi.apps.googleusercontent.com'; // TODO: Update placeholder with desired client ID.
+    var CLIENT_ID = '919400316199-68vns4ia05nloajcjtcl0qqqq54qbul2.apps.googleusercontent.com'; // TODO: Update placeholder with desired client ID.
 
     // TODO: Authorize using one of the following scopes:
     //   'https://www.googleapis.com/auth/drive'
@@ -109,7 +116,8 @@ function initClient() {
     //   'https://www.googleapis.com/auth/drive.readonly'
     //   'https://www.googleapis.com/auth/spreadsheets'
     //   'https://www.googleapis.com/auth/spreadsheets.readonly'
-    var SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
+    var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+
 
     gapi.client.init({
         'apiKey': API_KEY,
@@ -119,19 +127,26 @@ function initClient() {
     }).then(function() {
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+    }).catch(function(fromResolve) {
+        console.log(fromResolve);
     });
 }
 
 function handleClientLoad() {
+    console.log("handleClientLoad");
     gapi.load('client:auth2', initClient);
 }
 
+/**
+ * 
+ * This function makes calls to the API for each subject and collects data from each subject.  
+ */
 function updateSignInStatus(isSignedIn) {
     makeApiCall("English");
-    /*makeApiCall("Social Studies");
+    makeApiCall("Social Studies");
     makeApiCall("Math");
     makeApiCall("Science");
-    makeApiCall("IT/CTE");*/
+    makeApiCall("IT/CTE");
 }
 
 function checkResponseValidity(response) {
@@ -173,7 +188,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
             advRegDiff, teacherFeedback);
         courses.push(newCourse);
     }
-    studentFeedbackApiCall(); //This sends it to studentFeedbackAPICall()
+    //This sends it to studentFeedbackAPICall()
     /* console.log("This is about to call the displayCourses function.");
      console.log(courses[0].studentFeedback);*/
     /* while (studentFeedbackComplete == false) {
@@ -190,4 +205,76 @@ function buildStudentFeedback(courseInfo) {
     var challenge = courseInfo[5];
     var expectationDiff = courseInfo[6];
     return new StudentFeedback(workTime, surviveClass, learn, challenge, expectationDiff);
+}
+
+function writeToSheet(write) {
+    var params = {
+        // The ID of the spreadsheet to update.
+        spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+
+        // The A1 notation of the values to update.
+        range: "'Sheet1'!A1", // TODO: Update placeholder value.
+
+        // How the input data should be interpreted.
+        valueInputOption: 'RAW', // TODO: Update placeholder value.
+    };
+
+    var valueRangeBody = {
+        // TODO: Add desired properties to the request body. All existing properties
+        // will be replaced.
+        "values": write
+    };
+
+    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+    request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+    }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+    });
+
+
+
+    //reading code:
+    /*var params = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+
+        // The A1 notation of the values to retrieve.
+        range: 'Sheet1', // TODO: Update placeholder value.
+
+        // How values should be represented in the output.
+        // The default render option is ValueRenderOption.FORMATTED_VALUE.
+        //valueRenderOption: '',  // TODO: Update placeholder value.
+
+        // How dates, times, and durations should be represented in the output.
+        // This is ignored if value_render_option is
+        // FORMATTED_VALUE.
+        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+    };
+
+    //Teacher request:
+    var request = gapi.client.sheets.spreadsheets.values.get(params);
+    request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        for (var r = 0; r < response.result.values.length; r++) {
+            for (var c = 0; c < response.result.values[r].length; c++) {
+                document.body.innerHTML += response.result.values[r][c];
+            }
+        }
+
+    }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+    });*/
+}
+
+function writeToSheetV2(write) {
+    var lock = LockService.getDocumentLock();
+    lock.waitLock(30000); // hold off up to 30 sec to avoid concurrent writing
+
+    // select the 'responses' sheet by default
+    var doc = SpreadsheetApp.getActiveSpreadsheet();
+    var sheetName = e.parameters.formGoogleSheetName || "responses";
+    var sheet = doc.getSheetByName(sheetName);
 }
