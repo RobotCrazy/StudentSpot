@@ -51,7 +51,7 @@ function buildRequest() {
             console.log(this.responseText);
         }
     }
-    $.post(requestURL, "grant_type=authorization_code&assertion=" + googleJWT,
+    $.post(requestURL, "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" + googleJWT,
         //original: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=
         function(result) {
             console.log(result);
