@@ -17,7 +17,7 @@ function formJWT() {
         "scope": "https://www.googleapis.com/auth/spreadsheets",
         "aud": "https://www.googleapis.com/oauth2/v4/token",
         "exp": expirationTime.toString(),
-        "iss": currentTime.toString()
+        "iat": currentTime.toString()
     };
     /**
      * Form JWT Signature:
