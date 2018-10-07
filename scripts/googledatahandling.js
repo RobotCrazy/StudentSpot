@@ -25,8 +25,7 @@ function formJWT() {
     var signature;
     sha256("104163110099206379100").then(function(digest) {
         signature = digest;
-        console.log(signature);
-        console.log("header" + header.alg);
+        console.log("claim set:");
         console.log(claimSet);
         var encodedHeader = btoa(JSON.stringify(header));
         var encodedClaimSet = btoa(JSON.stringify(claimSet));
