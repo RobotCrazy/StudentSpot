@@ -27,10 +27,12 @@ function formJWT() {
         signature = digest;
         console.log(signature);
         console.log("header" + header.alg);
+        console.log(claimSet);
         var encodedHeader = btoa(JSON.stringify(header));
         var encodedClaimSet = btoa(JSON.stringify(claimSet));
         var encodedSignature = btoa(JSON.stringify(signature));
         var jwt = encodedHeader + "." + encodedClaimSet + "." + encodedSignature;
+        console.log("")
         console.log(jwt);
         googleJWT = jwt;
         console.log("about to post");
