@@ -40,7 +40,7 @@ function formJWT() {
 
 
 function buildRequest() {
-    var requestURL = "https://www.googleapis.com/oauth2/v4/token HTTP/1.1";
+    var requestURL = "https://www.googleapis.com/oauth2/v4/token"; /*HTTP/1.1";*/
     console.log(requestURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
