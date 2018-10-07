@@ -6,7 +6,7 @@ function formJWT() {
      */
     var header = { "alg": "RS256", "typ": "JWT" };
     var currentDate = new Date();
-    var currentTime = (currentDate.getTime() / 1000);
+    var currentTime = Math.floor(currentDate.getTime() / 1000);
     console.log("currentTime: " + currentTime);
     var expirationTime = currentTime + (55 * 60); //add 55 minutes of time converted to seconds for expiration
     //provides leeway from full one hour maximum
