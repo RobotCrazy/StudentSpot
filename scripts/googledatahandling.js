@@ -13,7 +13,7 @@ function formJWT() {
      * Form JWT Claim Set:
      */
     var claimSet = {
-        "iss": "courseinformationhub@course-data-test-205001.iam.gserviceaccount.com",
+        "iss": "courseinformationhub@course-data-test.iam.gserviceaccount.com",
         "scope": "https://www.googleapis.com/auth/spreadsheets",
         "aud": "https://www.googleapis.com/oauth2/v4/token",
         "exp": expirationTime.toString(),
