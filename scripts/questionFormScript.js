@@ -74,9 +74,5 @@ function handleClientLoad() {
  * This function makes calls to the API for each subject and collects data from each subject.  
  */
 function updateSignInStatus(isSignedIn) {
-    makeApiCall("English");
-    makeApiCall("Social Studies");
-    makeApiCall("Math");
-    makeApiCall("Science");
-    makeApiCall("IT/CTE");
+    buildQuestionForm();
 }
