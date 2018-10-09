@@ -21,6 +21,7 @@ function formJWT() {
         "exp": expirationTime.toString(),
         "iat": currentTime.toString()
     };
+    console.log(header + claimSet + signature);
     /**
      * Form JWT Signature:
      */
@@ -40,7 +41,9 @@ function formJWT() {
     });
 }
 
-
+/**
+ * Builds the request object
+ */
 function buildRequest() {
     var requestURL = "https://www.googleapis.com/oauth2/v4/token"; /*HTTP/1.1";*/
     console.log(requestURL);
