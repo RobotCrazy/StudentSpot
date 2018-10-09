@@ -21,7 +21,7 @@ function formJWT() {
         "exp": expirationTime.toString(),
         "iat": currentTime.toString()
     };
-    console.log(header + claimSet + signature);
+
     /**
      * Form JWT Signature:
      */
@@ -37,6 +37,7 @@ function formJWT() {
         console.log(jwt);
         googleJWT = jwt;
         console.log("about to post");
+        console.log(header + claimSet + signature);
         buildRequest();
     });
 }
