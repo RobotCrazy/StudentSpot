@@ -33,11 +33,11 @@ function formJWT() {
         var encodedHeader = btoa(JSON.stringify(header));
         var encodedClaimSet = btoa(JSON.stringify(claimSet));
         var encodedSignature = btoa(JSON.stringify(signature));
-        var jwt = encodedHeader + encodedClaimSet + encodedSignature;
+        var jwt = encodedHeader + "." + encodedClaimSet + "." + encodedSignature;
         console.log(jwt);
         googleJWT = jwt;
         console.log("about to post");
-        console.log(header + claimSet + signature);
+        console.log(header + "." + claimSet + "." + signature);
         buildRequest();
     });
 }
