@@ -26,18 +26,19 @@ function formJWT() {
      * Form JWT Signature:
      */
     var signature;
-    sha256("5ee3397d965ebda2415765020a1fa9fcf2115345").then(function(digest) {
-        signature = digest;
-        console.log("claim set:");
-        console.log(claimSet);
-        var encodedHeader = btoa(JSON.stringify(header));
-        var encodedClaimSet = btoa(JSON.stringify(claimSet));
-        var encodedSignature = btoa(JSON.stringify(signature));
+    var encodedHeader = btoa(JSON.stringify(header));
+    var encodedClaimSet = btoa(JSON.stringify(claimSet));
+    var signature = encodedHeader + "." + encodedClaimSet;
+    var encoded256Signature;
+    sha256(signature).then(function(digest) {
+        encoded256Signature = digest;
+
+
+        var encodedSignature = btoa(encoded256Signature);
+        //var encodedSignature = btoa(JSON.stringify(signature));
         var jwt = encodedHeader + "." + encodedClaimSet + "." + encodedSignature;
         console.log(jwt);
         googleJWT = jwt;
-        console.log("about to post");
-        console.log(header + "." + claimSet + "." + signature);
         buildRequest();
     });
 }
