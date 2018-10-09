@@ -26,7 +26,7 @@ function formJWT() {
      * Form JWT Signature:
      */
     var signature;
-    sha256("116801378925846977483").then(function(digest) {
+    sha256("5ee3397d965ebda2415765020a1fa9fcf2115345").then(function(digest) {
         signature = digest;
         console.log("claim set:");
         console.log(claimSet);
