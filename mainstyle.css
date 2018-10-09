@@ -1,0 +1,340 @@
+/*Here are the large elements*/
+html ,body{
+	width: 100vw;
+	margin:0px;
+	padding:0px;
+	overflow-x: hidden;
+}
+* {
+	box-sizing: border-box;
+	font-family: Helvetica;
+  }
+table {
+	width:100vw;
+}
+td {
+	vertical-align:top;
+	width:50vw;
+}
+p {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+div {
+	overflow:auto; 
+}
+table {
+	overflow:auto;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family:Helvetica;
+	text-align:center;
+}
+form {
+	border: 3px solid #6606A5;
+	border-radius: 3px;
+	margin-top: 20px;
+	margin-bottom: 25px;
+	padding: 25px;
+}
+input[type=text] {
+	display: inline;
+	border: 2px solid grey;
+	border-radius:5px;
+	margin: 5px;
+	padding: 6px 10px;
+	transition: border-color .5s;d
+}
+input[type=text]:focus {
+	border-color: #6606A5;
+	transition: border-color .5s;
+}
+label {
+	font-weight: bold;
+	display:inline;
+}
+.courseButton {
+      color: #222;
+      width: 100%;
+	  max-height:75px;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      transition:.75s;
+	  border-top:0px;
+      border-left: 2px solid #222;
+      border-right: 2px solid #222;
+	  border-bottom: 2px solid #222;
+	  
+	  background-color: #fcfdff;
+      cursor: pointer;
+      padding: 18px;
+      text-align: left;
+      outline: none;
+      font-size: 16px;
+      text-transform: uppercase;
+	  
+}
+.courseButton:hover {
+	background-color: #ddd;
+	transition:.75s;
+}
+.course_panel {
+      color: black;
+      padding: 0 18px;
+      font-size: 14px;
+      overflow: hidden;
+      transition: max-height 0.7s ease-out;
+      border-left: 2px solid #222;
+	  border-right: 2px solid #222;
+	  font-family: "Helvetica";
+}
+
+
+@keyframes courseOpen{
+	
+}
+.open {
+	animation: max-height 0.7s ease-out;
+}
+.course_subject {
+	font-family:Helvetica;
+}
+.active, .course__expand:hover {
+    background-color: #ddd;
+}
+.teacherDesc {
+	width:45%;
+	padding-left: 3%;
+	float:left;
+}
+.studentDesc {
+	width:45%;
+	padding-right: 3%;
+	float:right;
+}
+header {
+	background-color: #cccccc;
+	padding: 30px;
+	text-align: center;
+	height: 185px;
+  }
+  .content {
+	padding: 5vw;
+  }
+  .pageTopContainer {
+	padding: 16px;
+	text-align: center;
+	margin-right: 5vw;
+	margin-left: 5vw;
+	border-left: 2px dashed #6606A5;
+	border-right: 2px dashed #6606A5;
+	border-bottom: 2px dashed #6606A5;
+  }
+  #courseSearch {
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	padding: 12px 20px 12px 40px;
+	border: 2px solid #ddd;
+	margin-bottom: 12px;
+	border-radius: 5px;
+	transition: width .7s ease-in-out, border-color .7s ease-in-out;
+	width: 20%;
+  }
+  #courseSearch:focus {
+	border-color: #6606A5;
+	width: 100%;
+  }
+  .table__header {
+	background-color: #6606A5;
+	color: white;
+  }
+
+/*Border Styles*/
+.borderLess {
+	border:none;
+}
+.thickBorder {
+	border:5px solid; 
+}
+.mediumBorder {
+	border:3px solid; 
+}
+.smallBorder {
+	border:1px solid;
+}
+.highRoundBorder {
+	border-radius:20px;
+}
+.mediumRoundBorder {
+	border-radius:15px;
+}
+.lowRoundBorder {
+	border-radius:12px;
+}
+.redBorder {
+	border-color:red;
+}
+.orangeBorder {
+	border-color:orange; 
+}
+.yellowBorder {
+	border-color:yellow; 
+}
+.greenBorder {
+	border-color:green; 
+}
+.blueBorder {
+	border-color:blue; 
+}
+.purpleBorder  {
+	border-color:#6606A5; 
+}
+.greyBorder {
+	border-color:grey; 
+}
+.blackBorder {
+	border-color:black;
+}
+
+/*Margin and padding styles*/
+.largePadding {
+	padding:10px;
+}
+.mediumPadding {
+	padding: 7px;
+}
+.smallPadding {
+	padding:5px
+}
+.largeMargin {
+	margin:60px;
+}
+.mediumMargin {
+	margin:40px;
+}
+.smallMargin {
+	margin:20px;
+}
+.marginLess {
+	margin:0px;
+}
+
+/*Alignment Styles*/
+.leftAlign {
+	text-align:left;
+}
+.centerAlign {
+	text-align:center;
+}
+.rightAlign {
+	float:right;
+}
+.vTop {
+	vertical-align:top;
+}
+.vCenter {
+	vertical-align:middle;
+}
+.vBottom {
+	vertical-align:bottom;
+}
+
+/*Gradient Styles*/
+.radialGreyToBottom {
+	background:-webkit-linear-gradient(bottom, grey, white);
+	background:-o-linear-gradient(bottom, grey, white);
+	background:-moz-linear-gradient(bottom, grey, white);
+	background:-linear-gradient(to bottom, grey, white);
+}
+.radialGreyToBottom {
+	background:-webkit-linear-gradient(bottom, grey, white);
+	background:-o-linear-gradient(bottom, grey, white);
+	background:-moz-linear-gradient(bottom, grey, white);
+	background:-linear-gradient(to bottom, grey, white);
+}
+.radialGreyToBottom {
+	background:-webkit-linear-gradient(bottom, grey, white);
+	background:-o-linear-gradient(bottom, grey, white);
+	background:-moz-linear-gradient(bottom, grey, white);
+	background:-linear-gradient(to bottom, grey, white);
+}
+.radialGreyToBottom {
+	background:-webkit-linear-gradient(bottom, grey, white);
+	background:-o-linear-gradient(bottom, grey, white);
+	background:-moz-linear-gradient(bottom, grey, white);
+	background:-linear-gradient(to bottom, grey, white);
+}
+.radialPurpleToBottom {
+	background:-webkit-linear-gradient(bottom, purple, white);
+	background:-o-linear-gradient(bottom, purple, white);
+	background:-moz-linear-gradient(bottom, purple, white);
+	background:-linear-gradient(to bottom, purple, white);
+}
+
+
+
+/*Background Styles*/
+.whiteBackground {
+	background-color:white
+}
+.blackBackground {
+	background-color:black
+}
+.redBackground {
+	background-color:red;  
+}
+.orangeBackground {
+	background-color:orange
+}
+.yellowBackground {
+	background-color:yellow
+}
+.greenBackground {
+	background-color:green
+}
+.blueBackground {
+	background-color:blue
+}
+.purpleBackground {
+	background-color:#6606A5;
+}
+
+/*Text Styles*/
+.whiteText {
+	color:white;
+}
+.blackText {
+	color:black;  
+}
+.inline {
+	display:inline;
+}
+
+/*Link Styles*/
+.inverseLink:link,.uniqueLinks a:link {
+	color: red;
+}
+
+/* visited link */
+.inverseLink:visited,.uniqueLinks a:visited  {
+	color: green;
+}
+
+/* mouse over link */
+.inverseLink:hover ,.uniqueLinks a:hover {
+	color: hotpink;
+}
+
+/* selected link */
+.inverseLink:active ,.uniqueLinks a:active {
+	color: blue;
+}
+
+
+
+
+
+
+
+
