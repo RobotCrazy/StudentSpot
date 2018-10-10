@@ -164,9 +164,7 @@ header {
     text-align: center;
     margin-right: 5vw;
     margin-left: 5vw;
-    border-left: 2px dashed #6606A5;
-    border-right: 2px dashed #6606A5;
-    border-bottom: 2px dashed #6606A5;
+    border: none;
 }
 
 #courseSearch {
