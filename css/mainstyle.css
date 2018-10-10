@@ -468,3 +468,7 @@ header {
     text-decoration: none;
     color: white;
 }
+
+strong {
+    font: 2.5vh helvetica;
+}
