@@ -161,6 +161,8 @@ header {
     padding: none;
     padding-left: 5vw;
     padding-right: 5vw;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
 }
 
 .pageTopContainer {
