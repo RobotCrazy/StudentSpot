@@ -59,6 +59,7 @@ input[type=text] {
     margin: 5px;
     padding: 6px 10px;
     transition: border-color .5s;
+    min-width: 220px;
 }
 
 textarea {
