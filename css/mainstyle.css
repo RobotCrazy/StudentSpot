@@ -158,7 +158,9 @@ header {
 }
 
 .content {
-    padding: 5vw;
+    padding: none;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .pageTopContainer {
