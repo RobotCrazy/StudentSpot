@@ -29,9 +29,11 @@ function formJWT() {
     var encodedHeader = btoa(JSON.stringify(header));
     var encodedClaimSet = btoa(JSON.stringify(claimSet));
     var signature = encodedHeader + "." + encodedClaimSet;
+    console.log(signature);
     var encoded256Signature;
     sha256(signature).then(function(digest) {
         encoded256Signature = digest;
+        console.log(encoded256Signature);
 
 
         var encodedSignature = btoa(encoded256Signature);
