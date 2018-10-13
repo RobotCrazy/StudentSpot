@@ -29,6 +29,7 @@ function formJWT() {
     var encodedHeader = btoa(JSON.stringify(header));
     var encodedClaimSet = btoa(JSON.stringify(claimSet));
     var signature = encodedHeader + "." + encodedClaimSet;
+    console.log("signature:");
     console.log(signature);
     var encoded256Signature;
     sha256(signature).then(function(digest) {
@@ -39,6 +40,7 @@ function formJWT() {
         var encodedSignature = btoa(encoded256Signature);
         //var encodedSignature = btoa(JSON.stringify(signature));
         var jwt = encodedHeader + "." + encodedClaimSet + "." + encodedSignature;
+        console.log("jwt:");
         console.log(jwt);
         googleJWT = jwt;
         buildRequest();
@@ -50,7 +52,6 @@ function formJWT() {
  */
 function buildRequest() {
     var requestURL = "https://www.googleapis.com/oauth2/v4/token"; /*HTTP/1.1";*/
-    console.log(requestURL);
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
