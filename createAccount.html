@@ -56,15 +56,25 @@
             //     // account creation + encryption
             //     window.location.href = 'login.html';
             // }
-            else {
-                document.createTextNode("Passwords do not match!");
-            }
+            // else {
+            //     document.createTextNode("Passwords do not match!");
+            // }
         }
         </script>
 
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
+
+        <p style="font-weight:bold">Password must contain:</p>
+        <ul>
+            <li id="minChars">More than 6 characters</li>
+            <li id="maxChars">Less than 14 characters</li>
+            <li id="upperChar">One uppercase character</li>
+            <li id="lowerChar">One lowercase character</li>
+            <li id="numChar">One numerical character</li>
+            <li id="specChar">One special character !"#$%&'()*+,-.:;&lt;=&gt;?@[\]^_`{|}</li>
+        </ul>
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
