@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/loginStyle.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <h2>Login</h2>
+
+    <form>
+
+      <div class="container">
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+
+        </script>
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" id="pass" required>
+
+        <label for="confPass"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="confPass" id="confpass" required>
+
+        <input type="checkbox" onclick="myFunction()">Show Password<br><br>
+        <script>
+        function myFunction() {
+            var x = document.getElementById("pass");
+            var y = document.getElementById("confpass");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            
+            if (y.type === "password" ) {
+                y.type = "text";
+            } else {
+                y.type = "password";
+            }
+        }
+        </script>
+
+        <button type="submit">Create Account</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <a href="login.html"<button type="button" class="cancelbtn">Cancel</button></a>
+        <span class="psw"><a href="#">Create Account</a></span>
+      </div>
+    </form>
+
+</body>
+</html>
