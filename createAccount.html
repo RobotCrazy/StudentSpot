@@ -29,15 +29,14 @@
             var confPass = document.getElementById("confpass");
             document.createTextNode("Pass");
 
-            if (pass.value === confPass.value) {
+            if (pass.value == confPass.value) {
                 // account creation + encryption
                 window.location.href = 'login.html';
-                return true;
             }
             else {
                 document.createTextNode("Passwords do not match!");
-                return false;
             }
+            return false;
         }
     </script>
 
@@ -46,8 +45,8 @@
 <body>
 
     <h2>Create Account</h2>
-    <form>
 
+    <form>
         <div class="container">
             <label for="adminCode"><b>Admin Code</b></label>
             <input type="text" placeholder="Admin Code" name="email" required>
@@ -76,10 +75,6 @@
         </div>
 
         <button type="submit" onclick="finishCreation()">Create Account</button>
-
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
 
         <div class="container" style="background-color:#f1f1f1">
             <a href="login.html" <button type="button" class="cancelbtn">Cancel</button></a>
