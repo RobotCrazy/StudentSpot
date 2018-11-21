@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/loginStyle.css" rel="stylesheet" />
+    <link href="css/createAccStyle.css" rel="stylesheet" />
 
     <script>
         function showPassword() {
@@ -56,22 +56,22 @@
 
             </script>
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Password" name="psw" id="pass" required>
+            <input type="password" placeholder="Password" name="psw" id="pass" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#\$%\^&\*]).{6,14}$" title="Must contain at least one number, one uppercase and lowercase letter, one special character, and be between 6-14 characters." required>
 
             <label for="confPass"><b>Confirm Password</b></label>
             <input type="password" placeholder="Confirm Password" name="confPass" id="confpass" required>
 
             <input type="checkbox" onclick="return showPassword()">Show Password<br><br>
 
-            <p style="font-weight:bold">Password must contain:</p>
-            <ul>
-                <li id="minChars">More than 6 characters</li>
-                <li id="maxChars">Less than 14 characters</li>
-                <li id="upperChar">One uppercase character</li>
-                <li id="lowerChar">One lowercase character</li>
-                <li id="numChar">One numerical character</li>
-                <li id="specChar">One special character !"#$%&'()*+,-.:;&lt;=&gt;?@[\]^_`{|}</li>
-            </ul>
+            <div id="message">
+                <h3>Password must contian:</h3>
+                <p id="fiveChar" class="invalid">More than 5 characters</p>
+                <p id="fifChar" class="invalid">Less than 15 characters</p>
+                <p id="upperChar" class="invalid">One uppercase character</p>
+                <p id="lowerChar" class="invalid">One lowercase character</p>
+                <p id="numChar" class="invalid">One numerical character</p>
+                <p id="specChar" class="invalid">One special character !@#$%^&*</p>
+            </div>
         </div>
 
         <button type="submit" onclick="finishCreation()">Create Account</button>
