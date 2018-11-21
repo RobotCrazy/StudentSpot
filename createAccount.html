@@ -25,9 +25,10 @@
         <label for="confPass"><b>Confirm Password</b></label>
         <input type="password" placeholder="Confirm Password" name="confPass" id="confpass" required>
 
-        <input type="checkbox" onclick="myFunction()">Show Password<br><br>
+        <input type="checkbox" onclick="showPassword()">Show Password<br><br>
+        
         <script>
-        function myFunction() {
+        function showPassword() {
             var x = document.getElementById("pass");
             var y = document.getElementById("confpass");
             if (x.type === "password") {
@@ -44,7 +45,23 @@
         }
         </script>
 
-        <button type="submit">Create Account</button>
+        <button type="submit" onclick="finishCreation()">Create Account</button>
+
+        <script>
+        function finishCreation() {
+            var pass = document.getElementById("pass");
+            var confPass = document.getElementById("confpass");
+            
+            // if (pass.value === confPass.value) {
+            //     // account creation + encryption
+            //     window.location.href = 'login.html';
+            // }
+            else {
+                document.createTextNode("Passwords do not match!");
+            }
+        }
+        </script>
+
         <label>
           <input type="checkbox" checked="checked" name="remember"> Remember me
         </label>
