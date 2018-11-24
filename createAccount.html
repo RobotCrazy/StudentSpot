@@ -29,7 +29,7 @@
                 table: []
             };
             newAcc.table.push({id:1, square:2});
-            var json = json.stringify(newAcc);
+            var json = JSON.stringify(newAcc);
             var fs = require(fs);
             fs.writeFile('./accounts/admins.json', json, 'utf8', callback);
             console.log("Complete.");
