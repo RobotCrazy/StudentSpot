@@ -25,7 +25,14 @@
 
     <script>
         function finishCreation() {
-            alert("Nice job");
+            var newAcc = {
+                table: []
+            };
+            newAcc.table.push({id:1, square:2});
+            var json = json.stringify(newAcc);
+            var fs = require(fs);
+            fs.writeFile('./accounts/admins.json', json, 'utf8', callback);
+            console.log("Complete.");
         }
     </script>
 </head>
