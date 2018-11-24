@@ -22,18 +22,10 @@
             }
         }
     </script>
-
     <script>
-        function finishCreation() {
-            var newAcc = {
-                table: []
-            };
-            newAcc.table.push({id:1, square:2});
-            var json = JSON.stringify(newAcc);
-            var fs = require(fs);
-            fs.writeFile('./accounts/admins.json', json, 'utf8', callback);
-            console.log("Complete.");
-        }
+    function finishCreation() {
+
+    }
     </script>
 </head>
 
@@ -48,7 +40,8 @@
                 <input type="text" id="usrname" name="usrname" required>
 
                 <label for="psw">Password</label>
-                <input type="password" id="pass" name="psw" onchange="finishCreation()" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                <input type="password" id="pass" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                     required>
 
                 <label for="confpsw">Confirm Password</label>

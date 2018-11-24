@@ -4,6 +4,12 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/loginStyle.css" rel="stylesheet" />
+
+  <script>
+    function login(username, password) {
+      console.log( username + password);
+    }
+  </script>
 </head>
 
 <body>
@@ -13,17 +19,15 @@
   <form>
 
     <div class="container">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <label for="email"><b>Username</b></label>
+      <input type="text" id="user" placeholder="Enter Username" name="username" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" id="pass" placeholder="Enter Password" name="psw" required>
 
-      <button type="submit">Login</button>
-    </div>
-
-    <div class="container" style="background-color:#f1f1f1">
-      <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
+      <button type="button" onclick="login(user.value, pass.value)">Login </button> </div> <div class="container"
+        style="background-color:#f1f1f1">
+        <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
       <span class="psw"><a href="createAccount.html">Create Account</a></span>
     </div>
   </form>
