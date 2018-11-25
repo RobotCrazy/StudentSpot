@@ -26,7 +26,7 @@
       xhttp.open("GET", "accounts/adminUsers.txt", true);
       xhttp.send();
       
-      if ( validUser == true ) {
+      if ( validUser ) {
         validatePassword();
       }
       else {
