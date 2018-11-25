@@ -12,7 +12,7 @@
       var validUser = false;
       var times = 0;
       xhttp.onreadystatechange = function () {
-        function shift(text, shift) {
+        function cipher(text, shift) {
           var result = "";
           for (var i = 0; i < text.length; i++) {
             var c = text.charCodeAt(i);
@@ -33,7 +33,7 @@
             if (isDecrypt)
               shift = (26 - shift) % 26;
             var textElem = userArray[i];
-            decryptedUsername = shift(textElem.value, shift);
+            decryptedUsername = cipher(textElem, shift);
             if (username == decryptedUsername) {
               validUser = true;
             }
