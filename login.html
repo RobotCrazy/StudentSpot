@@ -7,7 +7,10 @@
 
   <script>
     function login(username, password) {
-      console.log( document.getElementById("user").value + " " + document.getElementById("pass").value);
+      console.log( username + " " + password);
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", "./scripts/accessAccounts.php?q=" + username, true);
+      xmlhttp.send();
     }
   </script>
 </head>

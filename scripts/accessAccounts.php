@@ -12,4 +12,14 @@ $passes[] = "password";
 //javascript function will access the value, if it is true, then it will proceed to the next page
 //if false, alert - incorrect username or password
 
+
+//Parsing for correct username
+$inputted_username = $_REQUEST["inputtedUsername"];
+for ( $i = 0; $i < count( $accs ); i++ ) {
+    if ( $inputted_username == $accs[$i] ) {
+        echo "<script>alert(\"Valid user!\");</script>";
+    }
+}
+
+
 ?>
