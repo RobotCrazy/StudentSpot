@@ -47,7 +47,6 @@
               times--;
             }
             times++;
-            console.log(decryptedUsername);
           }
           console.log("Is valid username: " + validUser);
           if (validUser) {
@@ -71,7 +70,6 @@
             var passwordArray = passwords.split("\n");
             
             var decryptedPassword = decipher( passwordArray[times], passwordArray[times].length );
-            console.log(decryptedPassword);
             if (password == decryptedPassword ) {
               valid = true;
             }
