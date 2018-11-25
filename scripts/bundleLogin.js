@@ -5,6 +5,7 @@
 
     var loginButton = document.getElementById("loginButton");
     function login() {
+      console.log("Testing script connection");
       const fs = require('fs');
       try {
         var data = fs.readFileSync('../accounts/adminLogins.txt', 'utf8');
