@@ -29,12 +29,6 @@ $inputted_username = $_REQUEST["inputted_username"];
 // }
 
 function logging() {
-    return "Random text";
+    echo "<script>console.log('Works here!');</script>";
 }
-switch($_POST['functionname']) {
-    case 'log':
-        $aResult['result'] = logging();
-}
-
-echo json_encode($aResult);
 ?>
