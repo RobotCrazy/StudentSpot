@@ -52,7 +52,9 @@
               alert( "Invalid password!" );
             }
           }
-        }
+        };
+        xhttp.open("GET", "accounts/adminPasses.txt", true);
+        xhttp.send();
       }
     } 
   </script>
