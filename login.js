@@ -16,5 +16,4 @@ function login(username, password) {
     };
     xhttp.open("GET", "accounts/adminUsers.txt", true);
     xhttp.send();
-
 }
