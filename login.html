@@ -7,11 +7,21 @@
 
   <script>
     function login(username, password) {
-      console.log(username + " " + password);
-      var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("GET", "./scripts/accessAccounts.php?inputted_username=" + username, true);
-      document.getElementById("testphp").innerHTML = this.responseText;
-      xmlhttp.send();
+      jQuery.ajax({
+        type: "POST",
+        url: './scripts/accessAccounts.php',
+        dataType: 'json',
+        data: { functionname: 'log', arguments: [1, 2] },
+
+        success: function (obj, textstatus) {
+          if (!('error' in obj)) {
+            console.log(obj);
+          }
+          else {
+            console.log(obj.error);
+          }
+        }
+      });
     }
   </script>
 
@@ -21,7 +31,7 @@
 
 <body>
 
-  <h1 id="testphp"><?php echo 'testing php'; ?></h1>
+  <h1 id="testphp"></h1>
   <h2>Login</h2>
 
   <form>

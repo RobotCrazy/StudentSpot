@@ -1,4 +1,7 @@
 <?php
+header('Content-Type: application/json');
+
+$aResult = array();
 
 $accs[] = "john";
 $accs[] = "upneet";
@@ -24,6 +27,14 @@ $inputted_username = $_REQUEST["inputted_username"];
 //         echo "console.log('Not this one!');";
 //     }
 // }
-echo "this is a test";
 
+function logging() {
+    return "Random text";
+}
+switch($_POST['functionname']) {
+    case 'log':
+        $aResult['result'] = logging();
+}
+
+echo json_encode($aResult);
 ?>
