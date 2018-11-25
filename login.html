@@ -12,11 +12,20 @@
       var validUser = false;
       var times = 0;
       xhttp.onreadystatechange = function () {
+
         if (this.readyState == 4 && this.status == 200) {
           var users = this.responseText;
           var userArray = users.split("\n");
           for (var i = 0; i < userArray.length; i++) {
-            if (username == userArray[i]) {
+            var decryptedUsername = "";
+            var isDecrypt = true;
+            var shiftText = userArray[i].length;
+            var shift = parseInt(shiftText, 10);
+            if (isDecrypt)
+              shift = (26 - shift) % 26;
+            var textElem = userArray[i];
+            decryptedUsername = shift(textElem.value, shift);
+            if (username == decryptedUsername) {
               validUser = true;
             }
             if (validUser) {
@@ -58,6 +67,17 @@
         };
         xhttp.open("GET", "accounts/adminPasses.txt", true);
         xhttp.send();
+      }
+
+      function shift(text, shift) {
+        var result = "";
+        for (var i = 0; i < text.length; i++) {
+          var c = text.charCodeAt(i);
+          if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);
+          else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);
+          else result += text.charAt(i);
+        }
+        return result;
       }
     } 
   </script>
