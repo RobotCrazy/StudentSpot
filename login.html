@@ -7,13 +7,9 @@
 
   <script>
     function login(username, password) {
-      console.log( username + " " + password);
+      console.log(username + " " + password);
       var xmlhttp = new XMLHttpRequest();
-      xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("testphp").innerHTML = this.responseText;
-            }
-      };
+      document.getElementById("testphp").innerHTML = this.responseText;
       xmlhttp.open("GET", "./scripts/accessAccounts.php?inputted_username=" + username, true);
       xmlhttp.send();
     }
@@ -37,9 +33,9 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" id="pass" placeholder="Enter Password" name="psw" required>
 
-      <button type="button" onclick="login(user.value, pass.value)">Login</button> </div> <div class="container"
-        style="background-color:#f1f1f1">
-        <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
+      <button type="button" onclick="login(user.value, pass.value)">Login</button> </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
       <span class="psw"><a href="createAccount.html">Create Account</a></span>
     </div>
   </form>
