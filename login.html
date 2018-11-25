@@ -13,8 +13,8 @@
         if (this.readyState == 4 && this.status == 200) {
           var users = this.responseText;
           var userArray = users.split("\n");
-          for ( var i = 0; $i < userArray.length; $i++ ) {
-            console.log(userArray[$i]);
+          for ( var i = 0; i < userArray.length; i++ ) {
+            console.log(userArray[i]);
           }
         }
       };
