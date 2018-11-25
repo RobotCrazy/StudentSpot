@@ -11,4 +11,5 @@ $passes[] = "password";
 //if they're equal, then return a true value
 //javascript function will access the value, if it is true, then it will proceed to the next page
 //if false, alert - incorrect username or password
+
 ?>
