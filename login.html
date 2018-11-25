@@ -11,7 +11,7 @@
         type: "POST",
         url: './scripts/accessAccounts.php',
         dataType: 'json',
-        data: { functionname: 'log', arguments: [1, 2] },
+        data: { functionname: 'log'},
 
         success: function (obj, textstatus) {
           if (!('error' in obj)) {
