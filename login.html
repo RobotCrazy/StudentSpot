@@ -9,7 +9,7 @@
     function login(username, password) {
       console.log( username + " " + password);
       var xmlhttp = new XMLHttpRequest();
-      xmlhttp.open("GET", "./scripts/accessAccounts.php?q=" + username, true);
+      xmlhttp.open("GET", "./scripts/accessAccounts.php?inputedUsername=" + username, true);
       xmlhttp.send();
     }
   </script>
