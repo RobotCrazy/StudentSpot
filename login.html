@@ -8,6 +8,16 @@
 
   <script>
     function login(username, password) {
+      function shift(text, shift) {
+        var result = "";
+        for (var i = 0; i < text.length; i++) {
+          var c = text.charCodeAt(i);
+          if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);
+          else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);
+          else result += text.charAt(i);
+        }
+        return result;
+      }
       var xhttp = new XMLHttpRequest();
       var validUser = false;
       var times = 0;
@@ -67,17 +77,6 @@
         };
         xhttp.open("GET", "accounts/adminPasses.txt", true);
         xhttp.send();
-      }
-
-      function shift(text, shift) {
-        var result = "";
-        for (var i = 0; i < text.length; i++) {
-          var c = text.charCodeAt(i);
-          if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);
-          else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);
-          else result += text.charAt(i);
-        }
-        return result;
       }
     } 
   </script>
