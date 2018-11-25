@@ -17,7 +17,7 @@ $passes[] = "password";
 
 
 //Parsing for correct username
-$inputted_username = $_REQUEST["inputted_username"];
+// $inputted_username = $_REQUEST["inputted_username"];
 
 // for ( $i = 0; $i < count( $accs ); i++ ) {
 //     if ( $inputted_username == $accs[$i] ) {
@@ -30,5 +30,8 @@ $inputted_username = $_REQUEST["inputted_username"];
 
 function logging() {
     echo "<script>console.log('Works here!');</script>";
+}
+if ( isset($_POST['submit'])) {
+    logging();
 }
 ?>
