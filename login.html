@@ -7,26 +7,15 @@
 
   <script>
     function login(username, password) {
-      $jQuery.ajax({
-        type: "POST",
-        url: './scripts/accessAccounts.php',
-        dataType: 'json',
-        data: { functionname: 'log'},
-
-        success: function (obj, textstatus) {
-          if (!('error' in obj)) {
-            console.log(obj);
-          }
-          else {
-            console.log(obj.error);
-          }
-        }
-      });
+      const fs = require('fs');
+      try {
+        var data = fs.readFileSync('./accounts/adminLogins.txt', 'utf8');
+        console.log(data);
+      } catch (e) {
+        console.log('Error:', e.stack);
+      }
     }
   </script>
-
-  <!-- <script id="testphp">
-  </script> -->
 </head>
 
 <body>
