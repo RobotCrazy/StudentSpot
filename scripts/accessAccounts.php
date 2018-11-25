@@ -23,6 +23,7 @@ for ( $i = 0; $i < count( $accs ); i++ ) {
         echo "<script>console.log('Not this one!');</script>";
     }
 }
+echo "<h1>just a test</h1>";
 
 
 ?>
