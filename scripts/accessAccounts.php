@@ -17,7 +17,10 @@ $passes[] = "password";
 $inputted_username = $_REQUEST["inputtedUsername"];
 for ( $i = 0; $i < count( $accs ); i++ ) {
     if ( $inputted_username == $accs[$i] ) {
-        echo "<h1>Valid user!</h1>";
+        echo "<script>console.log('Testing worked!');</script>";
+    }
+    else {
+        echo "<script>console.log('Not this one!');</script>";
     }
 }
 
