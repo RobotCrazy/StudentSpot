@@ -16,14 +16,14 @@ $passes[] = "password";
 //Parsing for correct username
 $inputted_username = $_REQUEST["inputtedUsername"];
 
-for ( $i = 0; $i < count( $accs ); i++ ) {
-    if ( $inputted_username == $accs[$i] ) {
-        echo "console.log('Testing worked!');";
-    }
-    else {
-        echo "console.log('Not this one!');";
-    }
-}
-
+// for ( $i = 0; $i < count( $accs ); i++ ) {
+//     if ( $inputted_username == $accs[$i] ) {
+//         echo "console.log('Testing worked!');";
+//     }
+//     else {
+//         echo "console.log('Not this one!');";
+//     }
+// }
+echo "this is a test";
 
 ?>
