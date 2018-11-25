@@ -21,15 +21,15 @@
             }
           }
           console.log(validUser);
+          if (validUser) {
+            validatePassword();
+          }
+          else {
+            alert("Incorrect username!");
+          }
         }
       };
       xhttp.open("GET", "accounts/adminUsers.txt", true);
-      if ( validUser ) {
-        validatePassword();
-      }
-      else {
-        alert( "Incorrect username!" );
-      }
       xhttp.send();
 
       function validatePassword() {
