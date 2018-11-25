@@ -69,6 +69,8 @@
           if (this.readyState == 4 && this.status == 200) {
             var passwords = this.responseText;
             var passwordArray = passwords.split("\n");
+            
+            var decryptedPassword = decipher( passwordArray[times], passwordArray[times].length );
             if (password == passwordArray[times]) {
               valid = true;
             }
