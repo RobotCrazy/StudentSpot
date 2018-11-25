@@ -14,7 +14,7 @@ $passes[] = "password";
 
 
 //Parsing for correct username
-$inputted_username = $_REQUEST["inputtedUsername"];
+$inputted_username = $_REQUEST["inputted_username"];
 
 // for ( $i = 0; $i < count( $accs ); i++ ) {
 //     if ( $inputted_username == $accs[$i] ) {
