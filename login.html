@@ -19,7 +19,7 @@
             if (username == userArray[i]) {
               validUser = true;
             }
-            if ( validUser ) {
+            if (validUser) {
               times--;
             }
             times++;
@@ -39,20 +39,20 @@
       function validatePassword() {
         var xhttp = new XMLHttpRequest();
         var valid = false;
-        
+
         xhttp.onreadystatechange = function () {
-          if ( this.readyState == 4 && this.status == 200 ) {
+          if (this.readyState == 4 && this.status == 200) {
             var passwords = this.responseText;
             var passwordArray = passwords.split("\n");
-            if ( password == passwordArray[times] )  {
+            if (password == passwordArray[times]) {
               valid = true;
             }
-            console.log("Entered valid password: " + valid );
-            if ( valid ) {
+            console.log("Entered valid password: " + valid);
+            if (valid) {
               console.log("Correct login!");
             }
             else {
-              alert( "Invalid password!" );
+              alert("Invalid password!");
             }
           }
         };
@@ -62,6 +62,16 @@
     } 
   </script>
 
+  <script>
+    function showPassword() {
+      var x = document.getElementById("pass");
+      if (x.type == "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
 </head>
 
 <body>
@@ -75,6 +85,7 @@
 
       <label for="psw"><b>Password</b></label>
       <input type="password" id="pass" placeholder="Enter Password" name="psw" required>
+      <input type="checkbox" onclick="showPassword()">Show password</br></br>
 
       <button type="button" id="loginButton" onclick="login(user.value, pass.value)">Login</button> </div>
     <div class="container" style="background-color:#f1f1f1">
