@@ -72,7 +72,7 @@
             
             var decryptedPassword = decipher( passwordArray[times], passwordArray[times].length );
             console.log(decryptedPassword);
-            if (password == passwordArray[times]) {
+            if (password == decryptedPassword ) {
               valid = true;
             }
             console.log("Entered valid password: " + valid);
