@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "jquery": "^3.3.1",
     "r.js": "^1.0.3",
     "require": "^2.4.20"
