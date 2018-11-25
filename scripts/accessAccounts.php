@@ -15,15 +15,15 @@ $passes[] = "password";
 
 //Parsing for correct username
 $inputted_username = $_REQUEST["inputtedUsername"];
+
 for ( $i = 0; $i < count( $accs ); i++ ) {
     if ( $inputted_username == $accs[$i] ) {
-        echo "<script>console.log('Testing worked!');</script>";
+        echo "console.log('Testing worked!');";
     }
     else {
-        echo "<script>console.log('Not this one!');</script>";
+        echo "console.log('Not this one!');";
     }
 }
-echo "<h1>just a test</h1>";
 
 
 ?>

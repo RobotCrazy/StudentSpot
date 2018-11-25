@@ -9,9 +9,17 @@
     function login(username, password) {
       console.log( username + " " + password);
       var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("testphp").innerHTML = this.responseText;
+            }
+      };
       xmlhttp.open("GET", "./scripts/accessAccounts.php?inputedUsername=" + username, true);
       xmlhttp.send();
     }
+  </script>
+
+  <script id="testphp">
   </script>
 </head>
 
