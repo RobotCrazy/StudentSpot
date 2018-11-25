@@ -1,6 +1,7 @@
 
 
-function login(username, password) {
+function login() {
+    console.log("Works here");
     const fs = require('fs');
     try {
       var data = fs.readFileSync('./accounts/adminLogins.txt', 'utf8');
