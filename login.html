@@ -10,8 +10,10 @@
     function login(username, password) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function () {
-        var users = this.responseText;
-        alert(users);
+        if (this.readyState == 4 && this.status == 200) {
+          var users = this.responseText;
+          alert(users);
+        }
       };
       xhttp.open("GET", "accounts/adminLogins.txt", true);
       xhttp.send();
