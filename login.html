@@ -20,6 +20,7 @@
               validUser = true;
             }
           }
+          console.log(validUser);
         }
       };
       xhttp.open("GET", "accounts/adminUsers.txt", true);
@@ -34,7 +35,7 @@
             }
           }
         }
-      }
+      };
       xhttp.open("GET", "accounts/adminPasses.txt", true);
       xhttp.send();
     }
