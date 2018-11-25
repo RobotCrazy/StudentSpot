@@ -2,8 +2,8 @@
 
 },{}],2:[function(require,module,exports){
 
-var loginButton = document.getElementById("loginButton");
-loginButton.onclick = function() {
+
+window.login = function() {
   console.log("Works here");
   const fs = require('fs');
   try {
