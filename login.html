@@ -5,17 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/loginStyle.css" rel="stylesheet" />
 
-  <script>
-    function login(username, password) {
-      const fs = require('fs');
-      try {
-        var data = fs.readFileSync('./accounts/adminLogins.txt', 'utf8');
-        console.log(data);
-      } catch (e) {
-        console.log('Error:', e.stack);
-      }
-    }
-  </script>
+  <script src="bundleLogin.js"></script>
 </head>
 
 <body>
@@ -32,7 +22,7 @@
       <label for="psw"><b>Password</b></label>
       <input type="password" id="pass" placeholder="Enter Password" name="psw" required>
 
-      <button type="button" onclick="login(user.value, pass.value)">Login</button> </div>
+      <button type="button" id="loginButton" onclick="login()">Login</button> </div>
     <div class="container" style="background-color:#f1f1f1">
       <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
       <span class="psw"><a href="createAccount.html">Create Account</a></span>
