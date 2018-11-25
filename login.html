@@ -10,7 +10,7 @@
       console.log(username + " " + password);
       var xmlhttp = new XMLHttpRequest();
       xmlhttp.open("GET", "./scripts/accessAccounts.php?inputted_username=" + username, true);
-      document.getElementById("testphp").innerHTML = xmlhttp.responseText;
+      document.getElementById("testphp").innerHTML = this.responseText;
       xmlhttp.send();
     }
   </script>
