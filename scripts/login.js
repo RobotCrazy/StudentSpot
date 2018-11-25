@@ -19021,7 +19021,7 @@ function extend() {
 },{"./has-keys":143}],145:[function(require,module,exports){
 
 
-function login() {
+window.login() = function() {
   console.log("Works here");
   const fs = require('browserify-fs');
   try {
