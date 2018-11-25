@@ -24,14 +24,13 @@
         }
       };
       xhttp.open("GET", "accounts/adminUsers.txt", true);
-      xhttp.send();
-      
       if ( validUser ) {
         validatePassword();
       }
       else {
         alert( "Incorrect username!" );
       }
+      xhttp.send();
 
       function validatePassword() {
         console.log("Do later");
