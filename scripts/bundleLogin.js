@@ -4,7 +4,7 @@
   }, {}], 2: [function (require, module, exports) {
 
     var loginButton = document.getElementById("loginButton");
-    loginButton.onclick = function() {
+    function login() {
       const fs = require('fs');
       try {
         var data = fs.readFileSync('../accounts/adminLogins.txt', 'utf8');
