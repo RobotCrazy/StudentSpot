@@ -169,6 +169,10 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
      * Go through array of pulled data and create new courseList array
      */
     for (var r = 1; r < result.values.length; r++) {
+        var questionAnswerSets = new Array(0);
+        for (var c = 0; c < result.values[r].length; c++) {
+            var question
+        }
         var name = result.values[r][0];
         var subject = subject;
         var countyDesc = result.values[r][1];

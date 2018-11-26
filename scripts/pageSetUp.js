@@ -21,5 +21,10 @@ function buildHeader() {
     var text1Text = document.createTextNode("Thinking about classes? Need help with planning? You're in the right place!");
 
     header.appendChild(text1Text);
+
+    var logoImage = document.createElement("img");
+    logoImage.src = "images/Student_Spot_Logo_Full.png";
+
+    header.appendChild(logoImage);
     return header;
 }
