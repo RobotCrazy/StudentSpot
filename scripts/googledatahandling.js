@@ -34,20 +34,7 @@ function formJWT() {
     var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
     console.log("signature:");
     console.log(encoded256Signature);
-    /*sha256(signature).then(function(digest) {
-        encoded256Signature = digest;
-        console.log(encoded256Signature);
 
-
-        var encodedSignature = btoa(encoded256Signature);
-        //var encodedSignature = btoa(JSON.stringify(signature));
-        var jwt = encodedHeader + "." + encodedClaimSet + "." + encodedSignature;
-        console.log("jwt:");
-        console.log(jwt);
-        googleJWT = KJUR.jws.JWS.sign(null, header, claimSet, key);
-        //googleJWT = jwt;
-        buildRequest();
-    });*/
     googleJWT = encodedHeader + "." + encodedClaimSet + "." + encoded256Signature;
     console.log(googleJWT);
     buildRequest();
@@ -69,7 +56,6 @@ function buildRequest() {
         function(result) {
             console.log(result);
         });
-    // Find a way to avoid the POST call having this doman's address added to the start of the URL
     /*xhttp.open("POST", requestURL, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" + googleJWT);*/

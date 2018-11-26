@@ -27,10 +27,10 @@ const courseList = [{
     }
 }];
 
-var englishQuestions = new Array();
+/*var englishQuestions = new Array();
 englishQuestions.push(new feedbackQuestion("Expected time needed per week: "));
 englishQuestions.push(new feedbackQuestion("These skills are useful for students to have:"));
-
+*/
 
 function buildCourseButton(name, subject) {
     //var container = document.createElement("div");
