@@ -56,14 +56,19 @@ function buildCourseButton(name, subject) {
     return courseButton;
 }
 
-function buildTeacherDesc(teacher) {
+function buildTeacherDesc(questionAnswerList) {
     //var container = document.createElement("div");
     var teacherDesc = document.createElement("div");
-    var workTimePar = document.createElement("p");
-    var workTime = document.createTextNode(teacher.workTime);
+    /*var workTimePar = document.createElement("p");
+    var workTime = document.createTextNode(teacher.workTime);*/
     workTimePar.appendChild(workTime);
 
-    var recomPrereqPar = document.createElement("p"); //recommended prerequisites
+    for (let i = 0; i < questionAnswerList.length - 1; i += 2) {
+        addElement(teacherDesc, "h3", document.createTextNode(questionAnswerList[i]));
+        addElement(teacherDesc, "p", document.createTextNode(questionAnswerList[i + 1]))
+    }
+
+    /*var recomPrereqPar = document.createElement("p"); //recommended prerequisites
     var recomPrereq = document.createTextNode(teacher.recomPrereq);
     recomPrereqPar.appendChild(recomPrereq);
 
@@ -81,7 +86,7 @@ function buildTeacherDesc(teacher) {
 
     var benefitsPar = document.createElement("p"); //benefits of taking the class
     var benefits = document.createTextNode(teacher.benefits);
-    benefitsPar.appendChild(benefits);
+    benefitsPar.appendChild(benefits);*/
 
     addElement(teacherDesc, "h2", "Teacher Feedback");
     addElement(teacherDesc, "h3", "Work Time:");
@@ -174,7 +179,7 @@ function displayCourses(courses) {
         var coursePanel = document.createElement("div");
         coursePanel.className = "course_panel state-hidden";
         var courseButton = buildCourseButton(courses[i].name, courses[i].subject);
-        var teacherDesc = buildTeacherDesc(courses[i].teacherFeedback);
+        var teacherDesc = buildTeacherDesc(courses[i].questionAnswerList);
         var studentDesc = new Array(0);
         /* console.log("This is inside the function " + courses[i].name);
          console.log(courses[i].studentFeedback);*/

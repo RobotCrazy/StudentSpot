@@ -169,11 +169,14 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
      * Go through array of pulled data and create new courseList array
      */
     for (var r = 1; r < result.values.length; r++) {
+        var courseName = result.values[r][0];
         var questionAnswerSets = new Array(0);
-        for (var c = 0; c < result.values[r].length; c++) {
-            var question
+        for (var c = 4; c < result.values[r].length; c++) {
+            if (result.values[r][c] != undefined && document.createTextNode(result.values[r][c]).trim() != "") {
+                questionAnswerSets.push(result.values[r][c]);
+            } else questionAnswerSets.push("Information unavailable");
         }
-        var name = result.values[r][0];
+        /*var name = result.values[r][0];
         var subject = subject;
         var countyDesc = result.values[r][1];
         var credits = result.values[r][2];
@@ -185,11 +188,8 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var teacherLearn = result.values[r][8];
         var teacherBenefits = result.values[r][9];
         var teacherRequiredPrereqs = result.values[r][10];
-        var teacherRecommendedPrereqs = result.values[r][11];
-        var teacherFeedback = new TeacherFeedback(teacherWorkTime, teacherRequiredPrereqs, teacherRecommendedPrereqs,
-            teacherUsefulSkills, teacherLearn, teacherBenefits);
-        var newCourse = new Course(name, subject, credits, countyDesc, regularCounterPart, advancedCounterPart,
-            advRegDiff, teacherFeedback);
+        var teacherRecommendedPrereqs = result.values[r][11];*/
+        var newCourse = new Course(courseName, subject, credits, countyDesc, questionAnswerSets);
         courses.push(newCourse);
     }
     //This sends it to studentFeedbackAPICall()
