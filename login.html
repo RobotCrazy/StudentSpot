@@ -1,34 +1,126 @@
 <!DOCTYPE html>
+<?php include 'scripts/accessAccounts.php';?>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/loginStyle.css" rel="stylesheet" />
-  </head>
 
-  <body>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/loginStyle.css" rel="stylesheet" />
 
-    <h2>Login</h2>
+  <script>
+    function login(username, password) {
 
-    <form>
+      function cipher(text, shift) {
+        var result = "";
+        for (var i = 0; i < text.length; i++) {
+          var c = text.charCodeAt(i);
+          if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65);
+          else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 + 97);
+          else result += text.charAt(i);
+        }
+        return result;
+      }
 
-      <div class="container">
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" required>
+      function decipher(text, shiftAmount) {
+        var decryptedUsername = "";
+        var isDecrypt = true;
+        var shift = parseInt(shiftAmount, 10);
+        if (isDecrypt)
+          shift = (26 - shift) % 26;
+        var textElem = text;
+        return cipher(textElem, shift);
+      }
 
-        <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+      var xhttp = new XMLHttpRequest();
+      var validUser = false;
+      var times = 0;
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          var users = this.responseText;
+          var userArray = users.split("\n");
+          for (var i = 0; i < userArray.length; i++) {
+            var decryptedUsername = "";
+            decryptedUsername = decipher( userArray[i], userArray[i].length );
+            if (username == decryptedUsername) {
+              validUser = true;
+            }
+            if (validUser) {
+              times--;
+            }
+            times++;
+            console.log(decryptedUsername);
+          }
+          console.log("Is valid username: " + validUser);
+          if (validUser) {
+            validatePassword();
+          }
+          else {
+            alert("Invalid username!");
+          }
+        }
+      };
+      xhttp.open("GET", "accounts/adminUsers.txt", true);
+      xhttp.send();
 
-        <button type="submit">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-      </div>
+      function validatePassword() {
+        var xhttp = new XMLHttpRequest();
+        var valid = false;
 
-      <div class="container" style="background-color:#f1f1f1">
-        <a href="indexv2.html"<button type="button" class="cancelbtn">Cancel</button></a>
-        <span class="psw">Forgot <a href="#">password?</a></span>
-      </div>
-    </form>
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var passwords = this.responseText;
+            var passwordArray = passwords.split("\n");
+            
+            var decryptedPassword = decipher( passwordArray[times], passwordArray[times].length );
+            if (password == decryptedPassword ) {
+              valid = true;
+            }
+            console.log("Entered valid password: " + valid);
+            if (valid) {
+              console.log("Correct login!");
+            }
+            else {
+              alert("Invalid password!");
+            }
+          }
+        };
+        xhttp.open("GET", "accounts/adminPasses.txt", true);
+        xhttp.send();
+      }
+    } 
+  </script>
+
+  <script>
+    function showPassword() {
+      var x = document.getElementById("pass");
+      if (x.type == "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <h2 id="demo">Login</h2>
+
+  <form method="post">
+
+    <div class="container">
+      <label for="email"><b>Username</b></label>
+      <input type="text" id="user" placeholder="Enter Username" name="username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" id="pass" placeholder="Enter Password" name="psw" required>
+      <input type="checkbox" onclick="showPassword()">Show password</br></br>
+
+      <button type="button" id="loginButton" onclick="login(user.value, pass.value)">Login</button> </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <a href="index.html" <button type="button" class="cancelbtn">Cancel</button></a>
+      <span class="psw"><a href="createAccount.html">Create Account</a></span>
+    </div>
+  </form>
 
 </body>
+
 </html>

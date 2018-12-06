@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/createAccStyle.css" rel="stylesheet" />
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("pass");
+            var y = document.getElementById("confpass");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+
+            if (y.type === "password") {
+                y.type = "text";
+            } else {
+                y.type = "password";
+            }
+        }
+    </script>
+    <script>
+    function finishCreation() {
+
+    }
+    </script>
+</head>
+
+<body>
+
+    <h2>Create Account</h2>
+
+    <form>
+        <div class="container">
+            <form>
+                <label for="usrname">Username</label>
+                <input type="text" id="usrname" name="usrname" required>
+
+                <label for="psw">Password</label>
+                <input type="password" id="pass" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required>
+
+                <label for="confpsw">Confirm Password</label>
+                <input type="password" id="confpass" name="confpass" required>
+                <input type="checkbox" onclick="showPassword()">Show Password<br><br>
+            </form>
+        </div>
+
+        <div id="message">
+            <h3>Password must contain the following:</h3>
+            <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+            <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+            <p id="number" class="invalid">A <b>number</b></p>
+            <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        </div>
+
+        <button type="submit" value="submit" id="createAccountButton" onclick="finishCreation()">Create Account</button>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <a href="login.html" <button type="button" class="cancelbtn">Cancel</button></a>
+        </div>
+    </form>
+
+</body>
+
+</html>
