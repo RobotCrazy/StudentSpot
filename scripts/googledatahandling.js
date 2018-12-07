@@ -30,6 +30,8 @@ function formJWT() {
     var encodedClaimSet = btoa(JSON.stringify(claimSet));
     var rawSignature = encodedHeader + "." + encodedClaimSet;
 
+
+
     var key = `-----BEGIN PRIVATE KEY-----
 MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbKdFRwUmKqq2j
 S9WTBoWhMfBz7JFLsNevxaHl8sdHvndL3YmE28sgXoLCzBuRwc59Oj951irc3Cr5
@@ -58,7 +60,7 @@ fm20yCurLOS7RI2iemwCz3/sfqlX2MrqWNqQpG75w41cVHVtzfzhZk37p3lAxTxr
 rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
-    var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
+    var encoded256Signature = CryptoJS.HmacSHA256(rawSignature, key);
     console.log("signature:");
     console.log(encoded256Signature);
 
