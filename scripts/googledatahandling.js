@@ -1,13 +1,10 @@
 var googleJWT;
 
-import AccountJSON from "./AccountJSON";
-
 function formJWT() {
     /**
      * Form JWT Header:
      */
-    console.log("This is the JSON");
-    console.log(AccountJSON);
+
     var header = { "alg": "RS256", "typ": "JWT" };
     var currentDate = new Date();
     var currentTime = Math.floor(currentDate.getTime() / 1000);
