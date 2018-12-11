@@ -171,10 +171,14 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
     for (var r = 1; r < result.values.length; r++) {
         var courseName = result.values[r][0];
         var questionAnswerSets = new Array(0);
+        var countyDesc = result.values[r][1];
+        var credits = result.values[r][2];
         for (var c = 4; c < result.values[r].length; c++) {
             if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
                 questionAnswerSets.push(result.values[r][c]);
-            } else questionAnswerSets.push("Information unavailable");
+            } else {
+                questionAnswerSets.push("Information unavailable");
+            }
         }
         /*var name = result.values[r][0];
         var subject = subject;
