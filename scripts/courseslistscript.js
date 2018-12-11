@@ -61,7 +61,7 @@ function buildTeacherDesc(questionAnswerList) {
     var teacherDesc = document.createElement("div");
     /*var workTimePar = document.createElement("p");
     var workTime = document.createTextNode(teacher.workTime);*/
-    workTimePar.appendChild(workTime);
+    //workTimePar.appendChild(workTime);
 
     for (let i = 0; i < questionAnswerList.length - 1; i += 2) {
         addElement(teacherDesc, "h3", document.createTextNode(questionAnswerList[i]));
@@ -88,7 +88,7 @@ function buildTeacherDesc(questionAnswerList) {
     var benefits = document.createTextNode(teacher.benefits);
     benefitsPar.appendChild(benefits);*/
 
-    addElement(teacherDesc, "h2", "Teacher Feedback");
+    /*addElement(teacherDesc, "h2", "Teacher Feedback");
     addElement(teacherDesc, "h3", "Work Time:");
     teacherDesc.appendChild(workTimePar);
     addElement(teacherDesc, "h3", "Prerequisites:");
@@ -99,7 +99,7 @@ function buildTeacherDesc(questionAnswerList) {
     addElement(teacherDesc, "h3", "What will I Learn?")
     teacherDesc.appendChild(learnPar);
     addElement(teacherDesc, "h3", "How will this course benefit me?");
-    teacherDesc.appendChild(benefitsPar);
+    teacherDesc.appendChild(benefitsPar);*/
     teacherDesc.className = "teacherDesc";
 
     //container.appendChild(teacherDesc);
