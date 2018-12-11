@@ -64,8 +64,12 @@ function buildTeacherDesc(questionAnswerList) {
     //workTimePar.appendChild(workTime);
 
     for (let i = 0; i < questionAnswerList.length - 1; i += 2) {
-        addElement(teacherDesc, "h3", document.createTextNode(questionAnswerList[i]));
-        addElement(teacherDesc, "p", document.createTextNode(questionAnswerList[i + 1]))
+        var question = document.createTextNode(questionAnswerList[i]);
+        var answer = document.createTextNode(questionAnswerList[i + 1]);
+        addElement(teacherDesc, "h3", question);
+        addElement(teacherDesc, "p", answer);
+        console.log(question);
+        console.log(answer);
     }
 
     /*var recomPrereqPar = document.createElement("p"); //recommended prerequisites
@@ -184,10 +188,10 @@ function displayCourses(courses) {
         /* console.log("This is inside the function " + courses[i].name);
          console.log(courses[i].studentFeedback);*/
         if (courses[i].studentFeedback.length > 0) {
-            console.log("studentFeedback length: " + courses[i].studentFeedback.length);
+            //console.log("studentFeedback length: " + courses[i].studentFeedback.length);
             for (let x = 0; x < courses[i].studentFeedback.length; x++) {
                 studentDesc.push(buildStudentDesc(courses[i].studentFeedback[x]));
-                console.log("adding to studentDesc");
+                // console.log("adding to studentDesc");
             }
         } else {
             studentDesc.push(document.createElement("div"));
@@ -201,7 +205,7 @@ function displayCourses(courses) {
         coursePanel.appendChild(hr1);
         coursePanel.appendChild(teacherDesc);
         if (studentDesc.length > 0) {
-            console.log("studentDesc length: " + studentDesc.length);
+            // console.log("studentDesc length: " + studentDesc.length);
             for (let i = 0; i < studentDesc.length; i++) {
                 coursePanel.appendChild(studentDesc[i]);
             }
