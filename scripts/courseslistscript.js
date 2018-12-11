@@ -64,8 +64,8 @@ function buildTeacherDesc(questionAnswerList) {
     //workTimePar.appendChild(workTime);
 
     for (let i = 0; i < questionAnswerList.length - 1; i += 2) {
-        var question = document.createTextNode(questionAnswerList[i]);
-        var answer = document.createTextNode(questionAnswerList[i + 1]);
+        var question = questionAnswerList[i] + "";
+        var answer = questionAnswerList[i + 1] + "";
         addElement(teacherDesc, "h3", question);
         addElement(teacherDesc, "p", answer);
         console.log(question);
@@ -241,7 +241,8 @@ function toggleCourseDisplay() {
  * The following functions are general purpose functions that may be moved into a seperate file.  
  */
 /**
- * This function appends a header of the specified type with the passed text as its content text.  
+ * This function appends an element of the specified type with the passed text as its content text to the 
+ * container object 
  */
 function addElement(container, elementType, text) {
     var contentText = document.createTextNode(text);
