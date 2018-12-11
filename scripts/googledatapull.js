@@ -172,7 +172,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var courseName = result.values[r][0];
         var questionAnswerSets = new Array(0);
         for (var c = 4; c < result.values[r].length; c++) {
-            if (result.values[r][c] != undefined && document.createTextNode(result.values[r][c]).trim() != "") {
+            if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
                 questionAnswerSets.push(result.values[r][c]);
             } else questionAnswerSets.push("Information unavailable");
         }
