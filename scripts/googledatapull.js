@@ -173,6 +173,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var questionAnswerSets = new Array(0);
         var countyDesc = result.values[r][1];
         var credits = result.values[r][2];
+        var isAdvanced = result.values[r][3];
         for (var c = 4; c < result.values[r].length; c++) {
             if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
                 questionAnswerSets.push(result.values[r][c]);
