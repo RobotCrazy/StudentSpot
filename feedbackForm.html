@@ -37,7 +37,7 @@
 <body onLoad="pageSetUp()">
     <form name="feedbackForm" id="feedbackForm" method="post">
         <label for="courseName">Select your course:</label>
-        <input type="text" name="courseName" id="courseName" onchange="setUpQuestions(this.value);" />
+        <input type="text" name="courseName" id="courseName" onkeyup="setUpQuestions(this.value);" />
     </form>
 
 
