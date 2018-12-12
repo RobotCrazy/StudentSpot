@@ -50,6 +50,51 @@ function makeApiCall(subject) {
 
 }
 
+function createTeacherCourseArray(result, subject) { //it comes here second, after making the API call. 
+    console.log("createTeacherCourseArray() has been called");
+    /**
+     * Go through array of pulled data and create new courseList array
+     */
+    for (var r = 1; r < result.values.length; r++) {
+        var courseName = result.values[r][0];
+        var questionAnswerSets = new Array(0);
+        var countyDesc = result.values[r][1];
+        var credits = result.values[r][2];
+        var isAdvanced = result.values[r][3];
+        for (var c = 4; c < result.values[r].length; c++) {
+            if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
+                questionAnswerSets.push(result.values[r][c]);
+            } else {
+                questionAnswerSets.push("Information unavailable");
+            }
+        }
+        /*var name = result.values[r][0];
+        var subject = subject;
+        var countyDesc = result.values[r][1];
+        var credits = result.values[r][2];
+        var teacherWorkTime = result.values[r][3];
+        var regularCounterPart = result.values[r][4];
+        var advancedCounterPart = result.values[r][5];
+        var advRegDiff = result.values[r][6];
+        var teacherUsefulSkills = result.values[r][7];
+        var teacherLearn = result.values[r][8];
+        var teacherBenefits = result.values[r][9];
+        var teacherRequiredPrereqs = result.values[r][10];
+        var teacherRecommendedPrereqs = result.values[r][11];*/
+        var newCourse = new Course(courseName, subject, credits, countyDesc, questionAnswerSets);
+        courses.push(newCourse);
+    }
+    //This sends it to studentFeedbackAPICall()
+    /* console.log("This is about to call the displayCourses function.");
+     console.log(courses[0].studentFeedback);*/
+    /* while (studentFeedbackComplete == false) {
+         //wait for studentFeedback to complete before displaying courses
+     }*/
+
+
+}
+
+
 function buildQuestionForm() {
     makeApiCall();
 }
