@@ -94,6 +94,16 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
 
 }
 
+function buildStudentFeedback(courseInfo) {
+    var workTime = courseInfo[2];
+    var surviveClass = courseInfo[3];
+    var learn = courseInfo[4];
+    var challenge = courseInfo[5];
+    var expectationDiff = courseInfo[6];
+    return new StudentFeedback(workTime, surviveClass, learn, challenge, expectationDiff);
+}
+
+
 
 function buildQuestionForm() {
     makeApiCall();
