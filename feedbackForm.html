@@ -16,142 +16,23 @@
         function pageSetUp() {
             document.body.insertBefore(buildHeader(), document.body.childNodes[0]);
         }
+
+        function setUpQuestions(courseName) {
+            var course = getCourse(courseName);
+            var questions;
+            if (course) {
+                questions = course.getQuestions();
+            }
+        }
     </script>
 </head>
 
 <body onLoad="pageSetUp()">
+    <form name="feedbackForm" id="feedbackForm" method="post">
+        <label for="courseName">Select your course:</label>
+        <input type="text" name="courseName" id="courseName" onchange="setUpQuestions(this.value);" />
+    </form>
 
-    <div class="questions">
-
-
-        <div class="formq">
-
-            <h3>Question 1</h3>
-            <h1> What is the name of the course you will be providing information for? Please note each class needs its own form. ie: do not put Adv Spanish 2 and Regular Spanish 2 on the same form. </h1>
-
-            <textarea>Advanced Math, Theater 2, etc.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 2</h3>
-            <h1> Please describe the amount of time and work outside of class that students should expect to put in for this course per week. </h1>
-
-            <p size="2.0vh">
-
-                <input id="radio" type="radio" name="outside-time" value="Less than 1 hour">Less than 1 hour<br />
-                <input type="radio" name="outside-time" value="1 to 2 hours">1 to 2 hours<br />
-                <input type="radio" name="outside-time" value="2 to 3 hours">2 to 3 hours<br />
-                <input type="radio" name="outside-time" value="3 to 4 hours">3 to 4 hours<br />
-                <input type="radio" name="outside-time" value="More than 4 hours">More than 4 hours<br />
-
-            </p>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 3</h3>
-            <h1> If this class is an advanced class, please note what its normal version is if present in Battlefield High School. </h1>
-
-            <textarea>Spanish 2, Biology, etc.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 4</h3>
-            <h1> If the class is an advanced class, please describe the difference between this class and its regular counterpart. (Work load, needed skills, terms of retakes/late turn in, etc.) </h1>
-
-            <textarea>This class has a much higher workload than regular chemistry, and does not accept late work.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 5</h3>
-            <h1> Please list any mandatory prerequisites required to take this class. </h1>
-
-            <textarea>Biology must be taken prior to Chemistry</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 6</h3>
-            <h1> Please list any recommended prerequisites students should take prior to taking this class. </h1>
-
-            <textarea>Algebra 2/Trigonometry is recommended prior to Chemistry</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 7</h3>
-            <h1> Please provide your advice or tips for succeeding in this class specifically. </h1>
-
-            <textarea>Take notes, study every night, etc.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 8</h3>
-            <h1> Please describe, in more detail, the content taught in this course. You may also email us a syllabus instead. </h1>
-
-            <textarea>Chemistry teaches about elements and compounds interacting on a molecular level.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 9</h3>
-            <h1> Please describe the benefits that students will receive by taking this class. Also include future career possibilities that may open for students by taking this class. </h1>
-
-            <textarea>Journalism provides a better understanding of published news, and can provide experience in the news field.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 10</h3>
-            <h1> Please describe the skills this class provides students that may be beneficial to them in the future. </h1>
-
-            <textarea>Journalism helps to teach students the importance of time management and deadlines.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 11</h3>
-            <h1> Please list and describe any skills that may be helpful for students to have (prior to taking the class) in order to succeed. </h1>
-
-            <textarea>For Functions Analytic Geometry, time management and being able to use a calculator efficiently are very important.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 12</h3>
-            <h1> Please describe what daily classroom activity is like. </h1>
-
-            <textarea>Functions Analytic Geometry usually is note-taking, followed by assisted examples, and then individual work.</textarea>
-
-        </div>
-
-        <div class="formq">
-
-            <h3>Question 13</h3>
-            <h1>Please fill out your name and email. (Just making sure you attend Battlefield)</h1>
-
-            <textarea>John H. Doe</textarea>
-
-            <textarea>DoeJH21@pwcs-edu.org</textarea>
-
-        </div>
-
-    </div>
 
 
 </body>

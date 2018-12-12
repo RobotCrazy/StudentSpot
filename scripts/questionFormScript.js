@@ -1,10 +1,17 @@
-function makeApiCall() {
-    var paramsStudent = {
+var requestTeacher;
+var requestStudent;
+var courses = new Array(0);
+var pullCounter = 0; //used to track how many api requests have been made so far
+
+/** The chain of API calls and processing starts here.   */
+function makeApiCall(subject) {
+    console.log("makeApiCall() has been called");
+    var paramsTeacher = {
         // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1vvAMq9n8vQAa6Q8S51x3J5Bqmg1OVFX6LFNjECdNZ-E', // TODO: Update placeholder value.
+        spreadsheetId: '1NbW7gqNM16eUSU43DXGj7xdi_Po5Gb-m8EQqSSRE4Bw', // TODO: Update placeholder value.
 
         // The A1 notation of the values to retrieve.
-        range: 'Student Responses', // TODO: Update placeholder value.
+        range: subject, // TODO: Update placeholder value.
 
         // How values should be represented in the output.
         // The default render option is ValueRenderOption.FORMATTED_VALUE.
@@ -17,16 +24,29 @@ function makeApiCall() {
         // dateTimeRenderOption: '',  // TODO: Update placeholder value.
     };
 
-    requestStudent = gapi.client.sheets.spreadsheets.values.get(paramsStudent);
-    requestStudent.then(function(response) {
-            // TODO: Change code below to process the `response` object:
-            console.log(response);
-            createQuestionInputs(response.result.);
-        },
-        function(reason) {
-            console.error('error: ' + reason.result.error.message);
-            window.refresh();
-        });
+    //Teacher request:
+    requestTeacher = gapi.client.sheets.spreadsheets.values.get(paramsTeacher);
+    requestTeacher.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
+        //an array
+        pullCounter++;
+        if (pullCounter == 5) {
+            studentFeedbackApiCall();
+        }
+        console.log(pullCounter);
+    }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+    });
+
+    //next attempt:
+    //Use two functions.  One builds teacher array.  Then student api data is pulled, and function is called.  
+    //The function builds the student part of the array and adds it to the course object in the array
+    //displayCourses() is then called
+
+
+    //Student request:
+
 
 }
 
@@ -67,14 +87,76 @@ function handleClientLoad() {
     gapi.load('client:auth2', initClient);
 }
 
+function buildCourseData() {
+
+}
+
 /**
  * 
  * This function makes calls to the API for each subject and collects data from each subject.  
  */
 function updateSignInStatus(isSignedIn) {
-    buildQuestionForm();
+    makeApiCall("English");
+    makeApiCall("Social Studies");
+    makeApiCall("Math");
+    makeApiCall("Science");
+    makeApiCall("IT/CTE");
 
 }
+
+function studentFeedbackApiCall() {
+    var studentFeedbackApiCallComplete = false;
+    console.log("studentFeedbackAPICall() has been called");
+    var paramsStudent = {
+        // The ID of the spreadsheet to retrieve data from.
+        spreadsheetId: '1vvAMq9n8vQAa6Q8S51x3J5Bqmg1OVFX6LFNjECdNZ-E', // TODO: Update placeholder value.
+
+        // The A1 notation of the values to retrieve.
+        range: 'Student Responses', // TODO: Update placeholder value.
+
+        // How values should be represented in the output.
+        // The default render option is ValueRenderOption.FORMATTED_VALUE.
+        //valueRenderOption: '',  // TODO: Update placeholder value.
+
+        // How dates, times, and durations should be represented in the output.
+        // This is ignored if value_render_option is
+        // FORMATTED_VALUE.
+        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+    };
+
+    requestStudent = gapi.client.sheets.spreadsheets.values.get(paramsStudent);
+    requestStudent.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        //console.log("Student Data has been succesfully pulled");
+        for (var i = 0; i < courses.length; i++) {
+            var courseName = courses[i].name;
+            for (var x = 0; x < response.result.values.length; x++) {
+                if (courseName == response.result.values[x][1]) {
+                    //console.log("Course name: " + courseName + "; " + response.result.values[x][1]);
+                    var newStudentFeedback = buildStudentFeedback(response.result.values[x]);
+                    courses[i].addStudentFeedback(newStudentFeedback);
+                    //console.log("student is happening");
+                    //console.log(courses[i].studentFeedback);
+                }
+            }
+
+        }
+        console.log("pullCounter: " + pullCounter);
+        document.getElementById("replaceText").parentNode.removeChild(document.getElementById("replaceText"));
+        /*console.log("studentAPICall is being set to true");
+        studentFeedbackApiCallComplete = true;*/
+    }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+    });
+    /*while (studentFeedbackApiCallComplete == false) {
+
+    }*/
+    console.log("studentFeedbackAPICall() is done");
+    studentFeedbackComplete = true;
+
+}
+
 
 function determineInputType(question) {
     var beginningOperatorLoc = question.indexOf("<");
@@ -126,6 +208,7 @@ function setUpRequiredAttributes(inputDevice, question) {
 
 
 }
+
 
 function createQuestionInputs(questions) {
     var formObject = document.getElementById("studentResponseEditor");
@@ -241,4 +324,13 @@ function populateStudentEditorForm(responses) {
         return false;
     }
 
+}
+
+function getCourse(courseName) {
+    for (let i = 0; i < courses.length; i++) {
+        if (courses[i].name == courseName) {
+            return courses[i];
+        }
+    }
+    return null;
 }
