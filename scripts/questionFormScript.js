@@ -198,7 +198,7 @@ function studentFeedbackApiCall() {
 
         }
         console.log("pullCounter: " + pullCounter);
-        document.getElementById("replaceText").parentNode.removeChild(document.getElementById("replaceText"));
+
         /*console.log("studentAPICall is being set to true");
         studentFeedbackApiCallComplete = true;*/
     }, function(reason) {
