@@ -23,6 +23,11 @@
         function setUpQuestions(courseName) {
             console.log("setUpQuestions called");
             var course = getCourse(courseName);
+            if (course != null) {
+                console.log(course.name);
+            } else {
+                console.log("course is null");
+            }
             var questions;
             if (course != null) {
                 questions = course.getQuestions();
