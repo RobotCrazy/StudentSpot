@@ -383,7 +383,7 @@ function populateStudentEditorForm(responses) {
 
 function getCourse(courseName) {
     for (let i = 0; i < courses.length; i++) {
-        if (courses[i].name == courseName) {
+        if (courses[i].name.toLowerCase() == courseName) {
             return courses[i];
         }
     }
