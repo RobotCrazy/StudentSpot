@@ -28,10 +28,8 @@
             } else {
                 console.log("course is null");
             }
-            var questions;
             if (course != null) {
-                questions = course.getQuestions();
-                document.body.appendChild(createQuestionsInputs(course.getQuestions()));
+                document.body.appendChild(createQuestionInputs(course.getQuestions()));
             }
         }
     </script>
