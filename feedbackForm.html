@@ -31,9 +31,7 @@
             var questions;
             if (course != null) {
                 questions = course.getQuestions();
-                for (let i = 0; i < questions.length; i++) {
-                    document.body.appendChild(document.createTextNode(questions[i]));
-                }
+                document.body.appendChild(createQuestionsInputs(course.getQuestions()));
             }
         }
     </script>

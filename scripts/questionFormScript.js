@@ -389,3 +389,58 @@ function getCourse(courseName) {
     }
     return null;
 }
+
+function createQuestionInputs(questions) {
+    var formObject = document.createElement("form");
+    var questionInputs = document.createElement("div");
+    questionInputs.className = "questionInputs";
+    questionInputs.id = "questionInputs";
+    for (let i = 0; i < questions.length - 1; i++) {
+        let inputID = questions[i].substring(0, questions[i].indexOf("<"));
+
+        let inputLabelText = document.createTextNode(questions[i].substring(0, questions[i].indexOf("<")));
+        let inputLabel = document.createElement("label");
+        inputLabel.appendChild(inputLabelText);
+        inputLabel.for = inputID;
+        let inputDevice;
+        if (determineInputType(questions[i]) == "textarea") {
+            inputDevice = document.createElement("textarea");
+            inputDevice.rows = "5";
+            inputDevice.cols = "50";
+        } else {
+            inputDevice = document.createElement("input");
+            inputDevice.type = determineInputType(questions[i]);
+            inputDevice.id = inputID;
+            inputDevice.name = inputID;
+            inputDevice.placeholder = "Text";
+        }
+        let extraElements = setUpRequiredAttributes(inputDevice, questions[i]);
+
+        questionInputs.appendChild(inputLabel);
+        questionInputs.appendChild(document.createElement("br"));
+        questionInputs.appendChild(inputDevice);
+        if (extraElements) {
+            questionInputs.appendChild(extraElements);
+        }
+        questionInputs.appendChild(document.createElement("br"));
+        questionInputs.appendChild(document.createElement("br"));
+        formObject.appendChild(questionInputs);
+        return formObject;
+    }
+}
+
+function determineInputType(question) {
+    var beginningOperatorLoc = question.indexOf("<");
+    console.log(question);
+    console.log(beginningOperatorLoc);
+    var endingOperatorLoc;
+    if (question.indexOf(",", beginningOperatorLoc) != -1 && question.indexOf(",", beginningOperatorLoc) < question.indexOf(">", beginningOperatorLoc)) {
+        endingOperatorLoc = question.indexOf(",", beginningOperatorLoc);
+        console.log("first if");
+    } else {
+        endingOperatorLoc = question.indexOf(">", beginningOperatorLoc);
+        console.log("second if");
+    }
+    console.log(endingOperatorLoc);
+    return question.substring(beginningOperatorLoc + 1, endingOperatorLoc);
+}
