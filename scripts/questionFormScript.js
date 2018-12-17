@@ -396,7 +396,7 @@ function createQuestionInputs(questions) {
     questionInputs.className = "questionInputs";
     questionInputs.id = "questionInputs";
     for (let i = 0; i < questions.length - 1; i++) {
-        console.log(i);
+        console.log(questions[i]);
         let inputID = questions[i].substring(0, questions[i].indexOf("<"));
 
         let inputLabelText = document.createTextNode(questions[i].substring(0, questions[i].indexOf("<")));
