@@ -30,10 +30,7 @@
             }
             if (course != null) {
                 let questions = course.getQuestions();
-                for (let i = 0; i < questions.length; i++) {
-                    document.body.append(questions[i]);
-                }
-                //document.body.appendChild(createQuestionInputs(course.getQuestions()));
+                document.body.appendChild(createQuestionInputs(questions));
             }
         }
     </script>
