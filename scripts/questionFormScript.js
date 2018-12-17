@@ -391,6 +391,7 @@ function getCourse(courseName) {
 }
 
 function createQuestionInputs(questions) {
+    console.log(questions);
     var formObject = document.createElement("form");
     var questionInputs = document.createElement("div");
     questionInputs.className = "questionInputs";
