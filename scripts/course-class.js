@@ -13,7 +13,7 @@ class Course {
     getQuestions() {
         var questions = new Array(this.questionAnswerList.length / 2);
         for (let i = 1; i < this.questionAnswerList.length; i += 2) {
-
+            console.log(this.questionAnswerList[i]);
             questions.push(this.questionAnswerList[i]);
         }
         return questions;
