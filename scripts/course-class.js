@@ -12,10 +12,12 @@ class Course {
     }
     getQuestions() {
         var questions = new Array(this.questionAnswerList.length / 2);
-        for (let i = 1; i < this.questionAnswerList.length; i += 2) {
+        console.log("getting questions");
+        for (let i = 0; i < this.questionAnswerList.length; i += 2) {
             console.log(this.questionAnswerList[i]);
             questions.push(this.questionAnswerList[i]);
         }
+        console.log("done getting questions");
         return questions;
     }
 
