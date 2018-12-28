@@ -69,7 +69,7 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 
     //var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
     console.log("signature:");
-    console.log(encoded256Signature);
+    //console.log(encoded256Signature);
 
     //googleJWT = encodedHeader + "." + encodedClaimSet + "." + encoded256Signature;
     console.log(googleJWT);
