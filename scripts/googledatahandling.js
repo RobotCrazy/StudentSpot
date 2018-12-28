@@ -63,7 +63,7 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
 
-    googleJWT = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
+    googleJWT = KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key);
 
 
 
