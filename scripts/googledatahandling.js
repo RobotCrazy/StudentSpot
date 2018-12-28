@@ -63,11 +63,11 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
 
-    var encoded256Signature = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
+    // var encoded256Signature = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
 
 
 
-    /*var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));*/
+    var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
     console.log("signature:");
     console.log(encoded256Signature);
 
