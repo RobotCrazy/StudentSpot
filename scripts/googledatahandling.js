@@ -22,6 +22,8 @@ function formJWT() {
         "exp": expirationTime.toString(),
         "iat": currentTime.toString()
     };
+    console.log(JSON.stringify(header));
+    console.log(JSON.stringify(claimSet));
 
     /**
      * Form JWT Signature:
@@ -30,6 +32,7 @@ function formJWT() {
     var encodedHeader = btoa(JSON.stringify(header));
     var encodedClaimSet = btoa(JSON.stringify(claimSet));
     var rawSignature = encodedHeader + "." + encodedClaimSet;
+    console.log(JSON.stringify(header) + "." + JSON.stringify(claimSet));
 
 
 
