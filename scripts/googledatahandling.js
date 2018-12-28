@@ -63,7 +63,7 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
 
-    var encoded256Signature = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
+    googleJWT = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
 
 
 
@@ -71,7 +71,7 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
     console.log("signature:");
     console.log(encoded256Signature);
 
-    googleJWT = encodedHeader + "." + encodedClaimSet + "." + encoded256Signature;
+    //googleJWT = encodedHeader + "." + encodedClaimSet + "." + encoded256Signature;
     console.log(googleJWT);
     buildRequest();
 }
