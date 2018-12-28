@@ -19,8 +19,8 @@ function formJWT() {
         "iss": "courseinformationhub@course-data-test.iam.gserviceaccount.com",
         "scope": "https://www.googleapis.com/auth/spreadsheets",
         "aud": "https://www.googleapis.com/oauth2/v4/token",
-        "exp": expirationTime,
-        "iat": currentTime
+        "exp": expirationTime.toString(),
+        "iat": currentTime.toString()
     };
     console.log(JSON.stringify(header));
     console.log(JSON.stringify(claimSet));
@@ -63,11 +63,11 @@ rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
 
-    // var encoded256Signature = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
+    var encoded256Signature = btoa(KJUR.jws.JWS.sign(null, JSON.stringify(header), JSON.stringify(claimSet), key));
 
 
 
-    var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
+    //var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
     console.log("signature:");
     console.log(encoded256Signature);
 
