@@ -31,7 +31,7 @@ function formJWT() {
     var signature;
     var encodedHeader = btoa(JSON.stringify(header));
     var encodedClaimSet = btoa(JSON.stringify(claimSet));
-    var rawSignature = encodedHeader + "." + encodedClaimSet;
+    var rawSignature = btoa(JSON.stringify(header) + "." + JSON.stringify(claimSet));
     console.log(JSON.stringify(header) + "." + JSON.stringify(claimSet));
 
 
