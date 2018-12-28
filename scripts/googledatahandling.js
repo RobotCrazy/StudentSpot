@@ -61,7 +61,7 @@ fm20yCurLOS7RI2iemwCz3/sfqlX2MrqWNqQpG75w41cVHVtzfzhZk37p3lAxTxr
 rziztfIcapYVlAXdpNTUmdnkrgKOFHjflkuwF1n2nXWqsJNTuX3EzOpS4fre0cmK
 80trQfp9ubUZK/f7q+eoTRE=
 -----END PRIVATE KEY-----`;
-    var encoded256Signature = atob(CryptoJS.HmacSHA256(rawSignature, key));
+    var encoded256Signature = btoa(CryptoJS.HmacSHA256(rawSignature, key));
     console.log("signature:");
     console.log(encoded256Signature);
 
