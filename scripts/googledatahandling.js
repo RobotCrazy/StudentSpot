@@ -19,8 +19,8 @@ function formJWT() {
         "iss": "courseinformationhub@course-data-test.iam.gserviceaccount.com",
         "scope": "https://www.googleapis.com/auth/spreadsheets",
         "aud": "https://www.googleapis.com/oauth2/v4/token",
-        "exp": expirationTime.toString(),
-        "iat": currentTime.toString()
+        "exp": expirationTime,
+        "iat": currentTime
     };
     console.log(JSON.stringify(header));
     console.log(JSON.stringify(claimSet));
