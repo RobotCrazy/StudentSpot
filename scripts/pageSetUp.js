@@ -3,7 +3,7 @@ function buildHeader() {
 
     //title
     var title = document.createElement("h2");
-    var titleText = document.createTextNode("Course Information Hub");
+    var titleText = document.createTextNode("StudentSpot");
     title.appendChild(titleText);
     header.appendChild(title);
 
@@ -19,11 +19,13 @@ function buildHeader() {
 
     var text1 = document.createElement("p");
     var text1Text = document.createTextNode("Thinking about classes? Need help with planning? You're in the right place!");
+    text1.appendChild(text1Text);
 
-    header.appendChild(text1Text);
+    header.appendChild(text1);
 
     var logoImage = document.createElement("img");
     logoImage.src = "images/Student_Spot_Logo_Full.png";
+    logoImage.style = "width: 200px;";
 
     header.appendChild(logoImage);
     return header;
