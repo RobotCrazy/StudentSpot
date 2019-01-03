@@ -171,9 +171,8 @@ function createQuestionInputs(inputTypes, questions) {
     questionInputs.className = "questionInputs";
     questionInputs.id = "questionInputs";
     for (let i = 0; i < questions.length - 1; i++) {
-        let inputID = questions[i].substring(0, questions[i].indexOf("<"));
-
-        let inputLabelText = document.createTextNode(questions[i].substring(0, questions[i].indexOf("<")));
+        let inputID = questions[i];
+        let inputLabelText = document.createTextNode(questions[i]);
         let inputLabel = document.createElement("label");
         inputLabel.appendChild(inputLabelText);
         inputLabel.for = inputID;
@@ -308,18 +307,8 @@ function createQuestionInputs(questions) {
     }
 }
 
-function determineInputType(question) {
-    var beginningOperatorLoc = question.indexOf("<");
-    console.log(question);
-    console.log(beginningOperatorLoc);
-    var endingOperatorLoc;
-    if (question.indexOf(",", beginningOperatorLoc) != -1 && question.indexOf(",", beginningOperatorLoc) < question.indexOf(">", beginningOperatorLoc)) {
-        endingOperatorLoc = question.indexOf(",", beginningOperatorLoc);
-        console.log("first if");
-    } else {
-        endingOperatorLoc = question.indexOf(">", beginningOperatorLoc);
-        console.log("second if");
-    }
-    console.log(endingOperatorLoc);
-    return question.substring(beginningOperatorLoc + 1, endingOperatorLoc);
+function determineInputType(code) {
+    console.log(code);
+    var endingOperatorLoc = code.indexOf(",");
+    return code.substring(1, endingOperatorLoc);
 }
