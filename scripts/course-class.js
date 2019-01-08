@@ -20,7 +20,7 @@ class Course {
         var questions = new Array(0);
         console.log("getting questions");
         console.log(this.questionAnswerList.length);
-        for (let i = 0; i < this.questionAnswerList.length; i++) {
+        for (let i = 0; i < this.questionAnswerList.length; i += 2) {
             console.log(this.questionAnswerList[i]);
             questions.push(this.questionAnswerList[i]);
         }
