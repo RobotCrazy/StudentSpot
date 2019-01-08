@@ -30,6 +30,7 @@
             }
             if (course != null) {
                 let questions = course.getQuestions();
+                console.log(questions);
                 document.body.appendChild(createQuestionInputs(questions));
             }
         }
