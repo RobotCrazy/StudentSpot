@@ -62,7 +62,8 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
             }
 
         }
-        var newCourse = new Course(courseName, subject, credits, countyDesc, questionInputTypes, questionAnswerSets);
+        var newCourse = new Course(courseName, subject, credits, countyDesc, questionAnswerSets);
+        newCourse.addQuestionInputTypes(questionInputTypes);
         courses.push(newCourse);
     }
 }
@@ -201,6 +202,7 @@ function createQuestionInputs(inputTypes, questions) {
         formObject.appendChild(questionInputs);
 
     }
+    return formObject;
 }
 
 

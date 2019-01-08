@@ -1,3 +1,6 @@
+/**
+ * The Course class is used to store all necessary info about the courses
+ */
 class Course {
     constructor(name, subject, credits, countyDesc, questionAnswerList) {
         this.name = name;
