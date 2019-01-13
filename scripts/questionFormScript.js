@@ -205,6 +205,8 @@ function createQuestionInputs(inputTypes, questions) {
     return formObject;
 }
 
+// Try to add more columns for each question
+
 
 function populateStudentEditorForm(responses) {
     if (responses.result.values) {
