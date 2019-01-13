@@ -90,7 +90,7 @@ function buildRequest() {
     $.post(requestURL, "grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" + googleJWT,
         //original: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=
         function(result) {
-            console.log(result);
+            console.log(result.access_token);
             writeToSheet(result.access_token);
         });
     /*xhttp.open("POST", requestURL, true);
