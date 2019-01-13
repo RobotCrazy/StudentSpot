@@ -91,14 +91,14 @@ function buildRequest() {
         //original: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=
         function(result) {
             console.log(result);
-            writeToSheet();
+            writeToSheet(result);
         });
     /*xhttp.open("POST", requestURL, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=" + googleJWT);*/
 }
 
-function writeToSheet() {
+function writeToSheet(accessToken) {
     var params = {
         // The ID of the spreadsheet to update.
         spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
@@ -109,7 +109,7 @@ function writeToSheet() {
         // How the input data should be interpreted.
         valueInputOption: 'RAW', // TODO: Update placeholder value.
 
-        access_token: googleJWT,
+        access_token: accessToken,
     };
 
     var valueRangeBody = {
