@@ -109,7 +109,7 @@ function writeToSheet(accessToken) {
         // How the input data should be interpreted.
         valueInputOption: 'RAW', // TODO: Update placeholder value.
 
-        access_token: accessToken
+        accessToken: accessToken
     };
 
     var valueRangeBody = {
