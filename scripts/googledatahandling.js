@@ -91,7 +91,7 @@ function buildRequest() {
         //original: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=
         function(result) {
             console.log(result.access_token);
-            // writeToSheet(result.access_token);
+            writeToSheet(result.access_token);
         });
     /*xhttp.open("POST", requestURL, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -131,7 +131,7 @@ function writeToSheet(accessToken) {
         "values": "This is text"
     };
 
-    var requestBuilder = new XMLHttpRequest();
+    /*var requestBuilder = new XMLHttpRequest();
     requestBuilder.open('PUT', 'https://sheets.googleapis.com/v4/spreadsheets/' + params.spreadsheetId + '/values/' + params.range + '?valueInputOption=' + params.valueInputOption);
     requestBuilder.setRequestHeader('Authorization', 'Bearer ' + accessToken);
     //requestBuilder.send(JSON.stringify(paramsJSON));
