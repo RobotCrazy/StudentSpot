@@ -216,66 +216,38 @@ function buildStudentFeedback(courseInfo) {
     return new StudentFeedback(workTime, surviveClass, learn, challenge, expectationDiff);
 }
 
-function writeToSheet(write) {
-    var params = {
-        // The ID of the spreadsheet to update.
-        spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
+//reading code:
+/*var params = {
+    // The ID of the spreadsheet to retrieve data from.
+    spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
 
-        // The A1 notation of the values to update.
-        range: "'Sheet1'!A1", // TODO: Update placeholder value.
+    // The A1 notation of the values to retrieve.
+    range: 'Sheet1', // TODO: Update placeholder value.
 
-        // How the input data should be interpreted.
-        valueInputOption: 'RAW', // TODO: Update placeholder value.
-    };
+    // How values should be represented in the output.
+    // The default render option is ValueRenderOption.FORMATTED_VALUE.
+    //valueRenderOption: '',  // TODO: Update placeholder value.
 
-    var valueRangeBody = {
-        // TODO: Add desired properties to the request body. All existing properties
-        // will be replaced.
-        "values": write
-    };
+    // How dates, times, and durations should be represented in the output.
+    // This is ignored if value_render_option is
+    // FORMATTED_VALUE.
+    // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+    // dateTimeRenderOption: '',  // TODO: Update placeholder value.
+};
 
-    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
-    request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-    }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-    });
-
-
-
-    //reading code:
-    /*var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
-
-        // The A1 notation of the values to retrieve.
-        range: 'Sheet1', // TODO: Update placeholder value.
-
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-        //valueRenderOption: '',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
-    };
-
-    //Teacher request:
-    var request = gapi.client.sheets.spreadsheets.values.get(params);
-    request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        for (var r = 0; r < response.result.values.length; r++) {
-            for (var c = 0; c < response.result.values[r].length; c++) {
-                document.body.innerHTML += response.result.values[r][c];
-            }
+//Teacher request:
+var request = gapi.client.sheets.spreadsheets.values.get(params);
+request.then(function(response) {
+    // TODO: Change code below to process the `response` object:
+    for (var r = 0; r < response.result.values.length; r++) {
+        for (var c = 0; c < response.result.values[r].length; c++) {
+            document.body.innerHTML += response.result.values[r][c];
         }
+    }
 
-    }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-    });*/
+}, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+});*/
 }
 
 function writeToSheetV2(write) {
