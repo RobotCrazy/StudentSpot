@@ -99,6 +99,7 @@ function buildRequest() {
 }
 
 function writeToSheet(accessToken) {
+    console.log("Inside write to sheet");
     var params = {
         // The ID of the spreadsheet to update.
         spreadsheetId: '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
