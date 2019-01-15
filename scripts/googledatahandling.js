@@ -113,19 +113,6 @@ function writeToSheet(accessToken) {
         access_token: accessToken
     };
 
-    var paramsJSON = {
-        // The ID of the spreadsheet to update.
-        "spreadsheetId": '1zFZYlOru4eLeOlXYpcMXvAlu2vdipSusF5U9c9S14_E', // TODO: Update placeholder value.
-
-        // The A1 notation of the values to update.
-        "range": "Sheet1'!A7", // TODO: Update placeholder value.
-
-        // How the input data should be interpreted.
-        "valueInputOption": 'RAW', // TODO: Update placeholder value.
-
-        "access_token": accessToken
-    };
-
     var valueRangeBody = {
         // TODO: Add desired properties to the request body. All existing properties
         // will be replaced.
@@ -134,18 +121,18 @@ function writeToSheet(accessToken) {
         ]
     };
 
-    /*var requestBuilder = new XMLHttpRequest();
+    var requestBuilder = new XMLHttpRequest();
     requestBuilder.open('PUT', 'https://sheets.googleapis.com/v4/spreadsheets/' + params.spreadsheetId + '/values/' + params.range + '?valueInputOption=' + params.valueInputOption);
     requestBuilder.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-    //requestBuilder.send(JSON.stringify(paramsJSON));*/
+    requestBuilder.send(JSON.stringify(paramsJSON));
 
-    var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
+    /*var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
     request.then(function(response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
     }, function(reason) {
         console.error('error: ' + reason.result.error.message);
-    });
+    });*/
 
 
 }
