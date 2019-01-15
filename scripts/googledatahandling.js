@@ -134,7 +134,7 @@ function writeToSheet(accessToken) {
     var requestBuilder = new XMLHttpRequest();
     requestBuilder.open('PUT', 'https://sheets.googleapis.com/v4/spreadsheets/' + params.spreadsheetId + '/values/' + params.range + '?valueInputOption=' + params.valueInputOption);
     requestBuilder.setRequestHeader('Authorization', 'Bearer ' + accessToken);
-    requestBuilder.send(JSON.stringify(paramsJSON));
+    //requestBuilder.send(JSON.stringify(paramsJSON));
 
     /*var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
     request.then(function(response) {
