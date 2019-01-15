@@ -91,7 +91,7 @@ function buildRequest() {
         //original: grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&assertion=
         function(result) {
             console.log(result.access_token);
-            writeToSheet(result);
+            writeToSheet(result.access_token);
         });
     /*xhttp.open("POST", requestURL, true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
