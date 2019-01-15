@@ -129,7 +129,9 @@ function writeToSheet(accessToken) {
     var valueRangeBody = {
         // TODO: Add desired properties to the request body. All existing properties
         // will be replaced.
-        "values": ["This is text"]
+        "values": [
+            ["This is text"]
+        ]
     };
 
     /*var requestBuilder = new XMLHttpRequest();
