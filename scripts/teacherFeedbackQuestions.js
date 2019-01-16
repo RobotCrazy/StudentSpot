@@ -1,3 +1,4 @@
 var commonQuestions = [
-    "What is the work load?"
+    "What is the work load?",
+    ""
 ];

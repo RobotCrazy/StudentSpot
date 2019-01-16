@@ -53,6 +53,10 @@ form {
     padding: 25px;
 }
 
+#form1 {
+    border: 0px;
+}
+
 input[type=text] {
     display: inline;
     border: 2px solid grey;
