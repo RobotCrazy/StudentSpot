@@ -56,20 +56,18 @@ function buildCourseButton(name, subject) {
     return courseButton;
 }
 
-function buildTeacherDesc(questionAnswerList) {
+function buildTeacherDesc(questions, answers) {
     //var container = document.createElement("div");
     var teacherDesc = document.createElement("div");
     /*var workTimePar = document.createElement("p");
     var workTime = document.createTextNode(teacher.workTime);*/
     //workTimePar.appendChild(workTime);
 
-    for (let i = 0; i < questionAnswerList.length - 1; i += 2) {
-        var question = questionAnswerList[i] + "";
-        var answer = questionAnswerList[i + 1] + "";
-        addElement(teacherDesc, "h3", question);
-        addElement(teacherDesc, "p", answer);
-        console.log(question);
-        console.log(answer);
+    for (let i = 0; i < questions.length; i++) {
+        if (answers[i] != undefined && answers[i].trim() != "") {
+            addElement(teacherDesc, "h3", question[i] + "");
+            addElement(teacherDesc, "p", answer[i] + "");
+        }
     }
 
     /*var recomPrereqPar = document.createElement("p"); //recommended prerequisites
