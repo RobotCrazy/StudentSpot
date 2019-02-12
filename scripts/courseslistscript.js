@@ -65,8 +65,8 @@ function buildTeacherDesc(questions, answers) {
 
     for (let i = 0; i < questions.length; i++) {
         if (answers[i] != undefined && answers[i].trim() != "") {
-            addElement(teacherDesc, "h3", question[i] + "");
-            addElement(teacherDesc, "p", answer[i] + "");
+            addElement(teacherDesc, "h3", questions[i] + "");
+            addElement(teacherDesc, "p", answers[i] + "");
         }
     }
 
