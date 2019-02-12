@@ -75,7 +75,7 @@ function makeApiCall(subject) {
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
         pullCounter++;
-        if (pullCounter == 4) {
+        if (pullCounter == 2) {
             studentFeedbackApiCall();
         }
         console.log(pullCounter);
@@ -188,8 +188,8 @@ function handleClientLoad() {
 function updateSignInStatus(isSignedIn) {
     makeApiCall("English");
     makeApiCall("Social Studies");
-    makeApiCall("Math");
-    makeApiCall("Science");
+    //makeApiCall("Math");
+    //makeApiCall("Science");
     //makeApiCall("IT/CTE");
 }
 
