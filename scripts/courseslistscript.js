@@ -199,8 +199,8 @@ function displayCourses(courses) {
 
         course.appendChild(courseButton);
         coursePanel.appendChild(subjectPar);
-        coursePanel.appendChild(countyDescPar);
-        coursePanel.appendChild(hr1);
+        //coursePanel.appendChild(countyDescPar);
+        //coursePanel.appendChild(hr1);
         coursePanel.appendChild(teacherDesc);
         if (studentDesc.length > 0) {
             // console.log("studentDesc length: " + studentDesc.length);
