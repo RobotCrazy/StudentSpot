@@ -190,7 +190,7 @@ function updateSignInStatus(isSignedIn) {
     makeApiCall("Social Studies");
     makeApiCall("Math");
     makeApiCall("Science");
-    makeApiCall("IT/CTE");
+    //makeApiCall("IT/CTE");
 }
 
 function checkResponseValidity(response) {
