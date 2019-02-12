@@ -168,7 +168,7 @@ function displayCourses(courses) {
         subjectPar.className += "course_subject centerAlign";
 
 
-        var countyDescPar = document.createElement("p");
+        /*var countyDescPar = document.createElement("p");
         var countyDesc = document.createTextNode(courses[i].countyDesc);
         countyDescPar.className += "course_description centerAlign";
         addElement(countyDescPar, "b", "County Description: ");
@@ -176,12 +176,12 @@ function displayCourses(courses) {
 
         var hr1 = document.createElement("hr");
         hr1.style = "background-color:#6606A5; height:15px; border-radius:8px;";
-
+*/
         var course = document.createElement("div");
         var coursePanel = document.createElement("div");
         coursePanel.className = "course_panel state-hidden";
         var courseButton = buildCourseButton(courses[i].name, courses[i].subject);
-        var teacherDesc = buildTeacherDesc(courses[i].questionAnswerList);
+        var teacherDesc = buildTeacherDesc(courses[i].questions, courses[i].answers);
         var studentDesc = new Array(0);
         /* console.log("This is inside the function " + courses[i].name);
          console.log(courses[i].studentFeedback);*/
