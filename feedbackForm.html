@@ -10,9 +10,11 @@
 
     </style>
     <script src="scripts/pageSetUp.js"></script>
-    <script src="scripts/studentfeedback - class.js"></script>
-    <script src="scripts/teacherfeedback-class.js"></script>
-    <script src="scripts/course-class.js"></script>
+    <script src="scripts/classes/studentfeedback - class.js"></script>
+    <script src="scripts/classes/teacherfeedback-class.js"></script>
+    <script src="scripts/classes/course-class.js"></script>
+    <script src="scripts/classes/inputType-class.js"></script>
+    <script src="scripts/teacherFeedbackQuestions.js"></script>
     <script src="scripts/questionFormScript.js"></script>
     <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
     <script>
@@ -21,26 +23,25 @@
         }
 
         function setUpQuestions(courseName) {
-            console.log("setUpQuestions called");
-            var course = getCourse(courseName);
-            if (course != null) {
-                console.log(course.name);
-            } else {
-                console.log("course is null");
-            }
-            if (course != null) {
-                let questions = course.getQuestions();
-                console.log(questions);
-                document.body.appendChild(createQuestionInputs(questions));
-            }
+            var subjectSelect = document.getElementById("feedbackSubject");
+            var subject = subjectSelect.options[subjectSelect.selectedIndex].value;
+            createQuestionInputs(subject);
         }
     </script>
 </head>
 
 <body onLoad="pageSetUp()">
     <form name="feedbackForm" id="feedbackForm" method="post">
-        <label for="courseName">Select your course:</label>
-        <input type="text" name="courseName" id="courseName" onkeyup="setUpQuestions(this.value.toLowerCase());" />
+        <label for="courseName">Select your subject:</label>
+        <select name="subject" id="feedbackSubject">
+            <option value="English">English</option>
+            <option value="SocialStudies">Social Studies</option>
+            <option value="Math">Math</option>
+            <option value="Science">Science</option>
+            <option value="IT">IT</option>
+            <option value="PerformingArts">Performing Arts</option>
+        </select> <br />
+        <button type="button" onClick="setUpQuestions()">Load Form</button>
     </form>
 
 
