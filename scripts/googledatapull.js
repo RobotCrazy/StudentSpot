@@ -75,7 +75,7 @@ function makeApiCall(subject) {
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
         pullCounter++;
-        if (pullCounter == 5) {
+        if (pullCounter == 4) {
             studentFeedbackApiCall();
         }
         console.log(pullCounter);
