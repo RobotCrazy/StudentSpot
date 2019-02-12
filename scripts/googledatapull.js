@@ -2,13 +2,56 @@ var requestTeacher;
 var requestStudent;
 var courses = new Array(0);
 var pullCounter = 0; //used to track how many api requests have been made so far
+var englishQuestions = new Array(0);
+var mathQuestions = new Array(0);
+var iTQuestions = new Array(0);
+var socialStudiesQuestions = new Array(0);
+var scienceQuestions = new Array(0);
+
+function makeQuestions(subject, questions) {
+    //var questions = new Array(0);
+    //for(let i = 0; i < questionArray.length; i++)
+    switch (subject) {
+        case "English":
+            englishQuestions = questions;
+            break;
+        case "Math":
+            mathQuestions = questions;
+            break;
+        case "IT":
+            iTQuestions = questions;
+            break;
+        case "Social Studies":
+            socialStudiesQuestions = questions;
+            break;
+        case "ScienceQuestions":
+            scienceQuestions = questions;
+            break;
+    }
+}
+
+function getQuestions(subject) {
+
+    if (subject == "English") {
+        return englishQuestions;
+    } else if (subject == "Social Studies") {
+        return socialStudiesQuestions;
+    } else if (subject == "Math") {
+        return mathQuestions;
+    } else if (subject == "IT") {
+        return iTQuestions;
+    } else if (subject == "Science") {
+        return scienceQuestions;
+    }
+
+}
 
 /** The chain of API calls and processing starts here.   */
 function makeApiCall(subject) {
     console.log("makeApiCall() has been called");
     var paramsTeacher = {
         // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1NbW7gqNM16eUSU43DXGj7xdi_Po5Gb-m8EQqSSRE4Bw', // TODO: Update placeholder value.
+        spreadsheetId: '1mR14biVpCiCIT8itSlv1wKso7me-hYnW5sEa6a9iFzE', // TODO: Update placeholder value.
 
         // The A1 notation of the values to retrieve.
         range: subject, // TODO: Update placeholder value.
@@ -28,6 +71,7 @@ function makeApiCall(subject) {
     requestTeacher = gapi.client.sheets.spreadsheets.values.get(paramsTeacher);
     requestTeacher.then(function(response) {
         // TODO: Change code below to process the `response` object:
+        makeQuestions(subject, response.result.values[0])
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
         pullCounter++;
@@ -168,17 +212,20 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
     /**
      * Go through array of pulled data and create new courseList array
      */
+    questions = getQuestions(subject);
     for (var r = 1; r < result.values.length; r++) {
         var courseName = result.values[r][0];
-        var questionAnswerSets = new Array(0);
-        var countyDesc = result.values[r][1];
-        var credits = result.values[r][2];
-        var isAdvanced = result.values[r][3];
-        for (var c = 4; c < result.values[r].length; c++) {
+        var answers = new Array(0);
+        var nextColumn = 0;
+        for (var c = 2; c < result.values[r].length; c++) {
             if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
-                questionAnswerSets.push(result.values[r][c]);
+                answers.push(result.values[r][c]);
             } else {
-                questionAnswerSets.push("Information unavailable");
+                answers.push("Information unavailable");
+            }
+            if (result.values[0][c] == "Other Notes") {
+                nextColumn = (i + 1);
+                break;
             }
         }
         /*var name = result.values[r][0];
@@ -194,7 +241,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var teacherBenefits = result.values[r][9];
         var teacherRequiredPrereqs = result.values[r][10];
         var teacherRecommendedPrereqs = result.values[r][11];*/
-        var newCourse = new Course(courseName, subject, credits, countyDesc, questionAnswerSets);
+        var newCourse = new Course(courseName, subject, questions, answers);
         courses.push(newCourse);
     }
     //This sends it to studentFeedbackAPICall()
