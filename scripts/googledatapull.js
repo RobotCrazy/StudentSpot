@@ -187,7 +187,7 @@ function handleClientLoad() {
  */
 function updateSignInStatus(isSignedIn) {
     makeApiCall("English");
-    makeApiCall("Social Studies");
+    makeApiCall("Math");
     //makeApiCall("Math");
     //makeApiCall("Science");
     //makeApiCall("IT/CTE");
