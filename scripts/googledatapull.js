@@ -8,24 +8,37 @@ var iTQuestions = new Array(0);
 var socialStudiesQuestions = new Array(0);
 var scienceQuestions = new Array(0);
 
+
+function makeQuestionColumns(questions) {
+    let finalQuestions = new Array(0);
+    let i = 0;
+
+    while (questions[i] != "Other Notes") {
+        finalQuestions.push(questions[i]);
+        i++;
+    }
+    finalQuestions.push(questions[i]);
+    return finalQuestions;
+}
+
 function makeQuestions(subject, questions) {
     //var questions = new Array(0);
     //for(let i = 0; i < questionArray.length; i++)
     switch (subject) {
         case "English":
-            englishQuestions = questions;
+            englishQuestions = makeQuestionColumns(questions);
             break;
         case "Math":
-            mathQuestions = questions;
+            mathQuestions = makeQuestionColumns(questions);
             break;
         case "IT":
-            iTQuestions = questions;
+            iTQuestions = makeQuestionColumns(questions);
             break;
         case "Social Studies":
-            socialStudiesQuestions = questions;
+            socialStudiesQuestions = makeQuestionColumns(questions);
             break;
         case "ScienceQuestions":
-            scienceQuestions = questions;
+            scienceQuestions = makeQuestionColumns(questions);
             break;
     }
 }
@@ -229,6 +242,8 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
                 break;
             }
         }
+        console.log(answers);
+        console.log("Next Column:" + nextColumn);
         /*var name = result.values[r][0];
         var subject = subject;
         var countyDesc = result.values[r][1];
