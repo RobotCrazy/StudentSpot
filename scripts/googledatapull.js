@@ -213,6 +213,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
      * Go through array of pulled data and create new courseList array
      */
     questions = getQuestions(subject);
+    console.log(questions);
     for (var r = 1; r < result.values.length; r++) {
         var courseName = result.values[r][0];
         var answers = new Array(0);
