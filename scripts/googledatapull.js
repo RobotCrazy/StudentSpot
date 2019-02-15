@@ -13,7 +13,7 @@ function makeQuestionColumns(questions) {
     let finalQuestions = new Array(0);
     let i = 0;
 
-    while (questions[i] != "Other Notes" && i < questions.length) {
+    while (questions[i] != "Other Notes:" && i < questions.length) {
         console.log(i);
         console.log(questions[i]);
         finalQuestions.push(questions[i]);
