@@ -14,6 +14,8 @@ function makeQuestionColumns(questions) {
     let i = 0;
 
     while (questions[i] != "Other Notes") {
+        console.log(i);
+        console.log(questions[i]);
         finalQuestions.push(questions[i]);
         i++;
     }
