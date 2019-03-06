@@ -243,8 +243,9 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
                 answers.push("Information unavailable");
                 console.log("Unavailable");
             }
-            if (result.values[0][c] == "Other Notes") {
-                nextColumn = (c + 1);
+            if (result.values[0][c + 1] == "Other Notes") {
+                answers.push(result.values[r][c + 1]);
+                nextColumn = (c + 2);
                 break;
             }
         }
