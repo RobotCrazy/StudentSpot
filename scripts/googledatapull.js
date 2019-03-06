@@ -233,7 +233,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var courseName = result.values[r][0];
         var answers = new Array(0);
         var nextColumn = 0;
-        console.log(result.values[r].length);
+        console.log(result.values[r]);
         for (var c = 2; c < result.values[r].length; c++) {
             if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
                 answers.push(result.values[r][c]);
