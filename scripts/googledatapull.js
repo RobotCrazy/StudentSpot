@@ -91,7 +91,8 @@ function makeApiCall(subject) {
         //an array
         pullCounter++;
         if (pullCounter == 2) {
-            studentFeedbackApiCall();
+            displayCourses(courses);
+            //studentFeedbackApiCall();
         }
         console.log(pullCounter);
     }, function(reason) {
