@@ -34,12 +34,21 @@
 
 <body>
     <header>
-        <h2>Battlefield Course Information Hub</h2>
+        <h2>StudentSpot</h2>
         <a href="login.html"> <button id="login" type="button">Login</button></a>
-        <p>Empowering students to make good choices.</p>
+        <p>Thinking about classes? Need help with planning? Welcome to StudentSpot.</p>
         <img src="images/Student_Spot_Logo_Full.png" width="100px;" />
     </header>
 
+    <div class="pageTopContainer">
+        <div class="submitStudentResponseDiv">
+            <a href="studentResponseEditing.html" class="submitStudentResponseAnchor">Submit a student response.</a>
+        </div>
+        <p>StudentSpot was created to give students help with planning, scheduling, etc. Only other students can really tell you what different classes are like.</p>
+        <p>After realizing this, we recruited a team of students to create a place that student could learn from their peers about classes. After conducting surveys of multiple students and teachers, StudentSpot was released to the school.
+        </p>
+        <p>Find out what classes are like <i>before</i> you take them.</p>
+    </div>
     <div class="content">
         <input type="text" id="courseSearch" onkeyup="search()" placeholder="Search Courses..." title="Type in a name">
         <div id="courses">
@@ -51,9 +60,13 @@
             </p>
         </div>
     </div>
-    <!--    <button onclick="formJWT();">Request Access</button>-->
-
-    <footer>This page is not affiliated or endorsed by Battlefield High School.</footer>
+    <form name="form1" id="form1" method="post" target="no-target">
+        <input id="firstName" placeholder="Enter your first name" name="firstName" />
+        <button type="button" name="Send" id="submitButton" onClick="writeToDocument(this.value)">Send</button>
+        <input type="text" id="stuff" name="stuff" />
+        <button type="button" id="stuff2" name="stuff2">Do Something</button>
+    </form>
+    <button onclick="formJWT();">Request Access</button>
 </body>
 
 </html>
