@@ -126,6 +126,7 @@ label {
     border-left: 2px solid #222;
     border-right: 2px solid #222;
     font-family: "Helvetica";
+    text-align: center;
 }
 
 @keyframes courseOpen {}
