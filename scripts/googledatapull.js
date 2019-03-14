@@ -91,6 +91,7 @@ function makeApiCall(subject) {
         //an array
         pullCounter++;
         if (pullCounter == 2) {
+            document.getElementById("replaceText").parentNode.removeChild(document.getElementById("replaceText"));
             displayCourses(courses);
             //studentFeedbackApiCall();
         }
