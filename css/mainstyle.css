@@ -6,6 +6,7 @@ body {
     margin: 0px;
     padding: 0px;
     overflow-x: hidden;
+    background-color: #eeeeee;
 }
 
 * {
@@ -479,4 +480,9 @@ header {
 
 strong {
     font: 16px helvetica;
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
 }
