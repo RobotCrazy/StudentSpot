@@ -86,6 +86,9 @@ function makeApiCall(subject) {
     requestTeacher = gapi.client.sheets.spreadsheets.values.get(paramsTeacher);
     requestTeacher.then(function(response) {
         // TODO: Change code below to process the `response` object:
+        console.log("Response Raw Result:");
+        console.log(response.result.values[0]);
+        console.log(subject);
         makeQuestions(subject, response.result.values[0]);
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
