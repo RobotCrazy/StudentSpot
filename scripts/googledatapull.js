@@ -86,7 +86,7 @@ function makeApiCall(subject) {
     requestTeacher = gapi.client.sheets.spreadsheets.values.get(paramsTeacher);
     requestTeacher.then(function(response) {
         // TODO: Change code below to process the `response` object:
-        makeQuestions(subject, response.result.values[0])
+        makeQuestions(subject, response.result.values[0]);
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
         pullCounter++;
@@ -236,6 +236,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
         var courseName = result.values[r][0];
         var answers = new Array(0);
         var nextColumn = 0;
+        console.log("Printing the result");
         console.log(result.values[r]);
         for (var c = 0; c < result.values[r].length; c++) {
             if (result.values[r][c] != undefined && result.values[r][c].trim() != "") {
