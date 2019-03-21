@@ -230,6 +230,7 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
      * Go through array of pulled data and create new courseList array
      */
     questions = getQuestions(subject);
+    var exceptionColumns = ["Prerequisites:", "Other Notes:"];
     console.log(questions);
     for (var r = 1; r < result.values.length; r++) {
         var courseName = result.values[r][0];
@@ -244,6 +245,9 @@ function createTeacherCourseArray(result, subject) { //it comes here second, aft
             } else {
                 answers.push("Information unavailable");
                 console.log("Unavailable");
+            }
+            if (exceptionColumns.indexOf(result.values[0][c]) < 0) {
+                answers.push("");
             }
             if (result.values[0][c + 1] == "Other Notes") {
                 answers.push(result.values[r][c + 1]);
