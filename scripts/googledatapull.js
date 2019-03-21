@@ -63,7 +63,7 @@ function getQuestions(subject) {
 
 /** The chain of API calls and processing starts here.   */
 function makeApiCall(subject) {
-    console.log("makeApiCall() has been called");
+    console.log("makeApiCall() has been called - " + subject);
     var paramsTeacher = {
         // The ID of the spreadsheet to retrieve data from.
         spreadsheetId: '1mR14biVpCiCIT8itSlv1wKso7me-hYnW5sEa6a9iFzE', // TODO: Update placeholder value.
