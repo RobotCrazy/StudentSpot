@@ -90,7 +90,7 @@ function makeApiCall(subject) {
         createTeacherCourseArray(response.result, subject); //This sends the object to process response.result into 
         //an array
         pullCounter++;
-        if (pullCounter == 2) {
+        if (pullCounter == 4) {
             document.getElementById("replaceText").parentNode.removeChild(document.getElementById("replaceText"));
             displayCourses(courses);
             //studentFeedbackApiCall();
@@ -205,8 +205,8 @@ function handleClientLoad() {
 function updateSignInStatus(isSignedIn) {
     makeApiCall("English");
     makeApiCall("Math");
-    //makeApiCall("Math");
-    //makeApiCall("Science");
+    makeApiCall("Science");
+    makeApiCall("Science");
     //makeApiCall("IT/CTE");
 }
 
