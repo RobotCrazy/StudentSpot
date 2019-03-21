@@ -206,7 +206,7 @@ function updateSignInStatus(isSignedIn) {
     makeApiCall("English");
     makeApiCall("Math");
     makeApiCall("Science");
-    makeApiCall("Science");
+    makeApiCall("Social Studies");
     //makeApiCall("IT/CTE");
 }
 
