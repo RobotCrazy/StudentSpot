@@ -39,7 +39,7 @@ function makeQuestions(subject, questions) {
         case "Social Studies":
             socialStudiesQuestions = makeQuestionColumns(questions);
             break;
-        case "ScienceQuestions":
+        case "Science":
             scienceQuestions = makeQuestionColumns(questions);
             break;
     }
